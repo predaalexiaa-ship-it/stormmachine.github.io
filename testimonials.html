@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storm Machine Entertainment - Testimonials</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* ==================================================== */
+        /* 1. BASE & GENERAL CSS (Consistent with index.html) */
+        /* ==================================================== */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top: 60px; /* Spațiu pentru header-ul fix */
+            background-color: #f7f7f7; /* Fundal mai deschis pentru a evidenția recenziile */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* ==================================================== */
+        /* 2. HEADER & NAVIGATION (FIXED BAR) - STRUCTURĂ IDENTICĂ */
+        /* ==================================================== */
+        .header {
+            background-color: #000;
+            color: #fff;
+            padding: 5px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 0 20px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links.left-links, .nav-links.right-links {
+            flex-basis: 45%; 
+        }
+
+        .nav-links.left-links {
+            justify-content: flex-start;
+        }
+
+        .nav-links.right-links {
+            justify-content: flex-end;
+        }
+
+        .nav-links a {
+            padding: 0 8px;
+            font-size: 13px;
+            font-weight: bold;
+            transition: color 0.3s;
+            white-space: nowrap; 
+        }
+
+        .nav-links a:hover {
+            color: #ffcc00;
+        }
+
+        .logo {
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            height: 30px; 
+            margin-right: 5px;
+        }
+        
+        /* ==================================================== */
+        /* 3. FOOTER - STRUCTURĂ IDENTICĂ */
+        /* ==================================================== */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+             max-width: 1200px;
+             margin: 0 auto;
+             display: flex;
+             justify-content: space-around;
+             align-items: center;
+             flex-wrap: wrap; 
+        }
+
+        .footer-info, .footer-links, .footer-social {
+            margin: 10px 20px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            margin: 0 15px;
+            transition: color 0.3s;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: #ffcc00;
+        }
+
+        .footer-social a {
+            font-size: 1.5em;
+            margin: 0 10px;
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: #ffcc00;
+        }
+        
+        /* ==================================================== */
+        /* 4. TESTIMONIALS PAGE SPECIFIC CSS */
+        /* ==================================================== */
+        
+        .testimonials-hero {
+            text-align: center;
+            padding: 80px 20px 40px;
+            background-color: #fff;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .testimonials-hero h1 {
+            font-size: 36px;
+            color: #0d83d1; /* Blue color */
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .testimonials-hero p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .testimonials-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            /* Două coloane pe ecrane mari */
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: #fff;
+            padding: 30px;
+            border-left: 5px solid #ffcc00; /* Bară galbenă de accent */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-radius: 5px;
+        }
+
+        .testimonial-card h4 {
+            font-size: 18px;
+            color: #000;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-card .client-name {
+            display: block;
+            text-align: right;
+            font-weight: bold;
+            color: #0d83d1;
+            font-style: normal;
+            margin-top: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .testimonials-container {
+                /* O singură coloană pe ecrane mici */
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="navbar">
+            <div class="nav-links left-links">
+                <a href="marquees.html">MARQUEES</a>
+                <a href="discos.html">DISCOS</a>
+                <a href="jaysbars.html">JAY'S BARS</a>
+                <a href="equipment.html">EQUIPMENT HIRE</a>
+                <a href="chairs.html">CHAIRS</a> 
+            </div>
+            
+            <div class="logo">
+                <a href="index.html"><img src="images/stormmachine-logo.png" alt="Storm Machine Logo" style="height: 30px;"></a>
+                <span>stormmachine</span>
+            </div>
+            
+            <div class="nav-links right-links">
+                <a href="login.html">LOGIN</a> 
+                <a href="register.html">REGISTER</a>
+                <a href="gallery.html">GALLERY</a>
+                <a href="information.html">INFORMATION</a>
+                <a href="testimonialspage.html">TESTIMONIALS</a> 
+                <a href="contact.html">CONTACT US</a>
+                <a href="#"><i class="fas fa-info-circle"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="testimonials-hero">
+        <h1>What Our Clients Say</h1>
+        <p>A collection of feedback from happy customers across all our event services.</p>
+    </section>
+
+    <section class="testimonials-container">
+        
+        <div class="testimonial-card">
+            <h4>Thank you for everything!</h4>
+            <p>"We had the most amazing time and you and your team really pulled out all the stops for us! Sincere thanks and we will certainly be recommending you to all of our friends."</p>
+            <span class="client-name">- Sarah & John D. (Wedding)</span>
+        </div>
+
+        <div class="testimonial-card">
+            <h4>Outstanding Service and Equipment!</h4>
+            <p>"The marquee was set up perfectly and the Jay's Bar service was a huge hit. Everything ran smoothly and professionally from start to finish. Highly recommend Storm Machine Entertainment."</p>
+            <span class="client-name">- Corporate Events Ltd. (Gala)</span>
+        </div>
+
+        <div class="testimonial-card">
+            <h4>Fantastic Disco Setup</h4>
+            <p>"The DJ and lighting equipment for our party were absolutely fantastic. The sound quality was superb, and the team was extremely friendly and accommodating with our last-minute requests. Five stars!"</p>
+            <span class="client-name">- Maria P. (Birthday Party)</span>
+        </div>
+        
+        <div class="testimonial-card">
+            <h4>Chairs and Furniture were Perfect</h4>
+            <p>"We rented 200 Chiavari chairs and several folding tables. All items were delivered on time and were in pristine condition. They truly elevated the look of our venue. Thank you for the quality hire!"</p>
+            <span class="client-name">- Events Bucharest (Venue Rental)</span>
+        </div>
+        
+        <div class="testimonial-card">
+            <h4>Seamless Process</h4>
+            <p>"The entire booking process, from the initial quote to the dismantling of the equipment, was seamless and stress-free. Your team is incredibly reliable. We will be repeat customers!"</p>
+            <span class="client-name">- Alex M. (Private Event)</span>
+        </div>
+        
+        <div class="testimonial-card">
+            <h4>The best in the business!</h4>
+            <p>"From the gorgeous marquee to the top-tier sound system, everything exceeded expectations. Their attention to detail made our special day truly magical."</p>
+            <span class="client-name">- The Popescu Family</span>
+        </div>
+        
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <p><strong>CONTACT US</strong></p>
+                <p>CALL US: 0722 123 456</p>
+            </div>
+            <div class="footer-links">
+                <a href="marquees.html">MARQUEES</a>
+                <a href="discos.html">DISCOS</a>
+                <a href="jaysbars.html">JAY'S BARS</a>
+                <a href="equipment.html">EQUIPMENT HIRE</a>
+                <a href="information.html">INFORMATION</a>
+            </div>
+            <div class="footer-social">
+                <p>Follow us</p>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
