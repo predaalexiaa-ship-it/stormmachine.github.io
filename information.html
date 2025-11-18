@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storm Machine Entertainment - Information & FAQ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* ==================================================== */
+        /* 1. BASE & GENERAL CSS (Consistent) */
+        /* ==================================================== */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top: 60px; /* Space for fixed header */
+            background-color: #f7f7f7; 
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* ==================================================== */
+        /* 2. HEADER & NAVIGATION (FIXED BAR) - Consistent */
+        /* ==================================================== */
+        .header {
+            background-color: #000;
+            color: #fff;
+            padding: 5px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 0 20px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links.left-links, .nav-links.right-links {
+            flex-basis: 45%; 
+        }
+
+        .nav-links.left-links {
+            justify-content: flex-start;
+        }
+
+        .nav-links.right-links {
+            justify-content: flex-end;
+        }
+
+        .nav-links a {
+            padding: 0 8px;
+            font-size: 13px;
+            font-weight: bold;
+            transition: color 0.3s;
+            white-space: nowrap; 
+        }
+
+        .nav-links a:hover {
+            color: #ffcc00;
+        }
+
+        .logo {
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            height: 30px; 
+            margin-right: 5px;
+        }
+        
+        /* ==================================================== */
+        /* 3. FOOTER - Consistent */
+        /* ==================================================== */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+             max-width: 1200px;
+             margin: 0 auto;
+             display: flex;
+             justify-content: space-around;
+             align-items: center;
+             flex-wrap: wrap; 
+        }
+
+        .footer-info, .footer-links, .footer-social {
+            margin: 10px 20px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            margin: 0 15px;
+            transition: color 0.3s;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: #ffcc00;
+        }
+
+        .footer-social a {
+            font-size: 1.5em;
+            margin: 0 10px;
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: #ffcc00;
+        }
+        
+        /* ==================================================== */
+        /* 4. INFORMATION PAGE SPECIFIC CSS (FAQ Accordion) */
+        /* ==================================================== */
+        
+        .info-hero {
+            position: relative;
+            background-color: #0d83d1; /* Blue theme */
+            padding: 40px 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .info-hero h1 {
+            font-size: 40px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        
+        .info-hero p {
+            max-width: 800px;
+            margin: 10px auto 0;
+            font-size: 18px;
+        }
+        
+        .info-section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .accordion {
+            background-color: #fff;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 18px;
+            transition: 0.4s;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .accordion:hover {
+            background-color: #eee;
+        }
+
+        .accordion i {
+            font-size: 1.2em;
+            transition: transform 0.3s;
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .panel p {
+            padding: 15px 0;
+        }
+        
+        .accordion.active {
+            background-color: #0d83d1;
+            color: white;
+        }
+
+        .accordion.active i {
+            transform: rotate(180deg);
+        }
+
+        /* Specific section for T&C */
+        .terms-section {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .terms-section h2 {
+            border-bottom: 2px solid #ffcc00;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="navbar">
+            <div class="nav-links left-links">
+                <a href="marquees.html">MARQUEES</a>
+                <a href="discos.html">DISCOS</a>
+                <a href="jaysbars.html">JAY'S BARS</a>
+                <a href="equipment.html">EQUIPMENT HIRE</a>
+                <a href="chairs.html">CHAIRS</a> 
+            </div>
+            
+            <div class="logo">
+                <a href="index.html"><img src="images/stormmachine-logo.png" alt="Storm Machine Logo" style="height: 30px;"></a>
+                <span>stormmachine</span>
+            </div>
+            
+            <div class="nav-links right-links">
+                <a href="login.html">LOGIN</a> 
+                <a href="register.html">REGISTER</a>
+                <a href="gallery.html">GALLERY</a>
+                <a href="information.html">INFORMATION</a> <a href="testimonialspage.html">TESTIMONIALS</a> 
+                <a href="contact.html">CONTACT US</a>
+                <a href="#"><i class="fas fa-info-circle"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="info-hero">
+        <h1>Information & Support</h1>
+        <p>Find answers to common questions, view our area of coverage, and read our Terms & Conditions.</p>
+    </section>
+
+    <section class="info-section">
+        <h2 style="text-align: center; color: #0d83d1; margin-bottom: 30px;">Frequently Asked Questions (FAQ)</h2>
+        
+        <button class="accordion">
+            How far in advance should I book?
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="panel">
+            <p>For large events and summer weddings (May-September), we recommend booking at least 6-12 months in advance to secure your date and preferred equipment. For smaller events or off-peak dates, 3-6 months is usually sufficient.</p>
+        </div>
+
+        <button class="accordion">
+            What is included in Marquee Hire?
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="panel">
+            <p>Our standard marquee hire includes the marquee structure, professional installation and dismantling, and necessary weather proofing. Flooring, lighting, heating, and linings are often optional extras, depending on the package you choose.</p>
+        </div>
+
+        <button class="accordion">
+            Do you provide bar staffing and licensing?
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="panel">
+            <p>Yes, our Jay's Bars service offers everything from dry hire (just the bar structure) to full service, including professional mixologists, stock, glassware, and obtaining the necessary Temporary Event Notice (TEN) license.</p>
+        </div>
+        
+        <button class="accordion">
+            What areas do you cover?
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="panel">
+            <p>We primarily serve the following counties/regions: [INSERT YOUR PRIMARY AREA HERE]. We may travel further for large bookings, subject to a reasonable travel surcharge. Please contact us with your event postcode for confirmation.</p>
+        </div>
+        
+        <div class="terms-section">
+            <h2>Terms and Conditions Summary</h2>
+            <p>This is a brief summary. Full T&Cs will be provided upon quoting.</p>
+            <ul>
+                <li>**Deposit:** A non-refundable deposit of [X]% is required to secure any booking.</li>
+                <li>**Cancellation:** Cancellation fees apply based on how close the cancellation date is to the event date.</li>
+                <li>**Damage:** The client is responsible for any loss or damage to the hired equipment from the time of setup until collection.</li>
+                <li>**Site Access:** The client must ensure adequate access and a suitable level ground for marquee setup.</li>
+            </ul>
+            <p style="margin-top: 20px;">For detailed legal terms, please <a href="contact.html" style="color: #0d83d1; font-weight: bold;">contact our office</a>.</p>
+        </div>
+
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <p><strong>CONTACT US</strong></p>
+                <p>CALL US: 0722 123 456</p>
+            </div>
+            <div class="footer-links">
+                <a href="marquees.html">MARQUEES</a>
+                <a href="discos.html">DISCOS</a>
+                <a href="jaysbars.html">JAY'S BARS</a>
+                <a href="equipment.html">EQUIPMENT HIRE</a>
+                <a href="information.html">INFORMATION</a>
+            </div>
+            <div class="footer-social">
+                <p>Follow us</p>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        const acc = document.getElementsByClassName("accordion");
+        for (let i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                // Toggle active class on the clicked accordion button
+                this.classList.toggle("active");
+                
+                // Get the next sibling element (the panel)
+                const panel = this.nextElementSibling;
+                
+                // Check if the panel is open (maxHeight > 0) or closed
+                if (panel.style.maxHeight) {
+                    // Close the panel
+                    panel.style.maxHeight = null;
+                } else {
+                    // Close all other open panels (optional, but good for cleanliness)
+                    for (let j = 0; j < acc.length; j++) {
+                        if (i !== j && acc[j].classList.contains("active")) {
+                            acc[j].classList.remove("active");
+                            acc[j].nextElementSibling.style.maxHeight = null;
+                        }
+                    }
+                    // Open the current panel
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                } 
+            });
+        }
+    </script>
+
+</body>
+</html>
