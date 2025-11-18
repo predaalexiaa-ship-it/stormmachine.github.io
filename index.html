@@ -27,7 +27,7 @@
         }
 
         /* ==================================================== */
-        /* 2. HEADER & NAVIGATION (FIXED BAR) - STRUCTURĂ CORECTATĂ */
+        /* 2. HEADER & NAVIGATION (FIXED BAR) - CORECTAT */
         /* ==================================================== */
         .header {
             background-color: #000; /* Black background */
@@ -43,7 +43,7 @@
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            /* CORECTAT: Spațiere uniformă între cele 3 blocuri: Linkuri Stânga, Logo, Linkuri Dreapta */
+            /* Spațiere logică pentru Logo central și link-uri laterale */
             justify-content: space-between; 
             align-items: center;
             padding: 0 20px;
@@ -55,22 +55,25 @@
             align-items: center;
         }
 
-        /* NOU: Asigură că cele două blocuri de link-uri au lățimea necesară, lăsând spațiu pentru Logo în centru */
+        /* Asigură că cele două blocuri de link-uri (stânga/dreapta) ocupă spațiul disponibil */
+        .nav-links.left-links, .nav-links.right-links {
+            flex-basis: 45%; 
+        }
+
         .nav-links.left-links {
             justify-content: flex-start;
-            flex-grow: 1;
         }
 
         .nav-links.right-links {
             justify-content: flex-end;
-            flex-grow: 1;
         }
 
         .nav-links a {
-            padding: 0 10px;
+            padding: 0 8px; /* Spațiu ajustat */
             font-size: 13px;
             font-weight: bold;
             transition: color 0.3s;
+            white-space: nowrap; 
         }
 
         .nav-links a:hover {
@@ -78,11 +81,10 @@
         }
 
         .logo {
-            margin: 0 30px;
+            margin: 0 10px;
             display: flex;
             align-items: center;
-            /* CORECTAT: Asigură că blocul logo este centrat și unic */
-            flex-shrink: 0; 
+            flex-shrink: 0; /* Prevents logo from shrinking */
         }
 
         .logo img {
