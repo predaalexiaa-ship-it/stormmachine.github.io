@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   
+    </section>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Storm Machine Entertainment - Home</title>
@@ -27,6 +29,14 @@
             color: #fff;
             padding: 10px 0;
         }
+        <section class="hero">
+        <div class="hero-content">
+            <h1>Premium Entertainment Services</h1>
+            <p>Turning Your Vision Into Reality</p>
+            <button class="btn" onclick="showModal('quote-modal')">Request Quote</button>
+            <button class="btn" onclick="showModal('gallery-modal')">View Gallery</button>
+        </div>
+    </section>
 
         .navbar {
             max-width: 1200px;
@@ -57,10 +67,13 @@
         }
 
         /* ---------------------------------------------------- */
+        
         /* Hero Section (Main Banner Image) */
         .hero {
+            /* LINIA CEA MAI IMPORTANTĂ: URL-ul imaginii */
             background: url('https://upload.wikimedia.org/wikipedia/commons/b/b3/Marquee_Events_at_London_Olympics_2012.jpg') no-repeat center center/cover;
-            height: 60vh;
+            
+            height: 60vh; /* Setează înălțimea banner-ului */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -68,6 +81,7 @@
             text-align: center;
             padding-top: 50px; 
         }
+    
 
         .hero-content h1 {
             font-size: 3.5em;
