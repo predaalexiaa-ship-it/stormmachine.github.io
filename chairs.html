@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Storm Machine Entertainment - Chairs Hire</title>
+    <title>Storm Machine Entertainment - Chairs & Tables Hire</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
         /* ==================================================== */
-        /* 1. BASE & GENERAL CSS (Consistent with index.html) */
+        /* 1. BASE & GENERAL CSS (Consistent) */
         /* ==================================================== */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             padding-top: 60px; /* Space for fixed header */
-            background-color: #fff;
+            background-color: #f7f7f7; 
             color: #333;
             line-height: 1.6;
         }
@@ -26,7 +26,7 @@
         }
         
         /* ==================================================== */
-        /* 2. HEADER & NAVIGATION (FIXED BAR) - CORECTAT */
+        /* 2. HEADER & NAVIGATION (FIXED BAR) - Identical Structure */
         /* ==================================================== */
         .header {
             background-color: #000;
@@ -85,12 +85,13 @@
         }
 
         .logo img {
+            /* Assuming your logo is in an 'images' folder. Adjust path if necessary. */
             height: 30px; 
             margin-right: 5px;
         }
         
         /* ==================================================== */
-        /* 3. FOOTER (Consistent with index.html) */
+        /* 3. FOOTER - Identical Structure */
         /* ==================================================== */
         .footer {
             background-color: #333;
@@ -99,10 +100,24 @@
             text-align: center;
         }
 
+        .footer-content {
+             max-width: 1200px;
+             margin: 0 auto;
+             display: flex;
+             justify-content: space-around;
+             align-items: center;
+             flex-wrap: wrap; 
+        }
+
+        .footer-info, .footer-links, .footer-social {
+            margin: 10px 20px;
+        }
+
         .footer-links a {
             color: #fff;
             margin: 0 15px;
             transition: color 0.3s;
+            display: inline-block;
         }
 
         .footer-links a:hover {
@@ -119,123 +134,101 @@
         .footer-social a:hover {
             color: #ffcc00;
         }
-
+        
         /* ==================================================== */
-        /* 4. CHAIRS PAGE SPECIFIC CSS */
+        /* 4. CHAIRS PAGE SPECIFIC CSS (Product Grid) */
         /* ==================================================== */
         
-        /* HERO Section */
         .chairs-hero {
             position: relative;
-            height: 300px;
-            /* IMAGINE HERO PĂSTRATĂ */
-            background-image: url('https://thepalm.ro/wp-content/uploads/2023/05/The-Palm-40.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background-color: #0d83d1;
+            padding: 40px 20px;
             text-align: center;
             color: #fff;
         }
 
-        .chairs-hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5); 
-        }
-
         .chairs-hero h1 {
-            z-index: 1;
             font-size: 40px;
             text-transform: uppercase;
-        }
-
-        /* Introduction & Text */
-        .intro-chairs {
-            text-align: center;
-            padding: 40px 20px;
-            max-width: 900px;
-            margin: 0 auto;
+            margin: 0;
         }
         
-        /* Chair Grid */
-        .chair-grid {
+        .chairs-hero p {
+            max-width: 800px;
+            margin: 10px auto 0;
+            font-size: 18px;
+        }
+
+        .product-grid-section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        
+        .product-grid {
             max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
 
-        .chair-item {
-            text-align: center;
+        .product-card {
+            background-color: #fff;
             border: 1px solid #ddd;
-            padding-bottom: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: left;
         }
 
-        .chair-item img {
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
             width: 100%;
-            height: 300px; 
+            height: 250px;
             object-fit: cover;
             display: block;
-            margin-bottom: 15px;
         }
 
-        .chair-item h3 {
-            font-size: 20px;
-            color: #0d83d1;
-            margin-top: 0;
-        }
-
-        .chair-item p {
-            font-size: 14px;
-            color: #555;
-            padding: 0 15px;
+        .product-content {
+            padding: 20px;
         }
         
-        /* Quote Section */
-        .quote-section {
-            background-color: #f7f7f7;
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid #ddd;
-            margin-top: 50px;
+        .product-content h3 {
+            color: #0d83d1;
+            margin-top: 0;
+            font-size: 24px;
+        }
+        
+        .product-content p {
+            font-size: 15px;
+            margin-bottom: 20px;
         }
 
-        .quote-section h3 {
-            font-size: 28px;
-            color: #000;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .quote-section button {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 12px 30px;
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 12px 0;
             background-color: #ffcc00;
             color: #000;
-            text-transform: uppercase;
             font-weight: bold;
-            border-radius: 5px;
+            text-transform: uppercase;
+            text-align: center;
+            border-radius: 4px;
             transition: background-color 0.3s;
-            cursor: pointer;
-            border: none;
         }
 
-        .quote-section button:hover {
+        .cta-button:hover {
             background-color: #e0b300;
         }
 
-        @media (max-width: 768px) {
-            .chair-grid {
-                grid-template-columns: 1fr;
+        @media (max-width: 600px) {
+            .chairs-hero h1 {
+                font-size: 32px;
             }
         }
     </style>
@@ -262,47 +255,59 @@
                 <a href="register.html">REGISTER</a>
                 <a href="gallery.html">GALLERY</a>
                 <a href="information.html">INFORMATION</a>
-                <a href="index.html#testimonials-section">TESTIMONIALS</a> 
-               <a href="contact.html">CONTACT US</a>
-                <a href="#"><i class="fas fa-info-circle"></i></a>
+                <a href="testimonialspage.html">TESTIMONIALS</a> 
+                <a href="contact.html">CONTACT US</a> <a href="#"><i class="fas fa-info-circle"></i></a>
             </div>
         </div>
     </header>
 
     <section class="chairs-hero">
-        <div class="chairs-hero-overlay"></div>
-        <h1>Our Chair & Furniture Hire</h1>
+        <h1>Essential Seating & Tables Hire</h1>
+        <p>From rustic wedding chic to corporate event simplicity, we provide a wide range of high-quality chairs and tables for any occasion.</p>
     </section>
 
-    <section class="intro-chairs">
-        <h2>Elegant Seating Solutions for Any Event</h2>
-        <p>
-            Choose from our exclusive collection of chairs, tables, and seating accessories to complement your event style, whether it's a rustic wedding, a modern corporate gathering, or a celebratory party. We ensure comfort meets elegance with every hire.
-        </p>
-    </section>
+    <section class="product-grid-section">
+        <h2>Our Chair and Table Range</h2>
+        
+        <div class="product-grid">
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1599388102462-8e7c1f8a8b11?fit=crop&w=600&q=80" alt="White Folding Chairs">
+                <div class="product-content">
+                    <h3>White Folding Chairs</h3>
+                    <p>Perfect for outdoor ceremonies and casual events. Lightweight, stackable, and durable, offering comfortable, no-fuss seating.</p>
+                    <a href="contact.html" class="cta-button">Check Availability & Price</a>
+                </div>
+            </div>
 
-    <section class="chair-grid">
-        <div class="chair-item">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkFk4hyyWug_KgmPWBCa8Tc3T5lVOXolWHFg&s" alt="Rustic Wooden Chair">
-            <h3>Rustic Chiavari Chairs</h3>
-            <p>Perfect for outdoor or country-style weddings. Available with various cushion colors.</p>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1550917244-933e4c4d7d10?fit=crop&w=600&q=80" alt="Banqueting Chairs">
+                <div class="product-content">
+                    <h3>Banqueting (Chiavari Style) Chairs</h3>
+                    <p>The ultimate choice for weddings and elegant dinners. Available in white, gold, or rustic wood finish with cushion pads.</p>
+                    <a href="contact.html" class="cta-button">Check Availability & Price</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1571617416399-529a6b10766d?fit=crop&w=600&q=80" alt="Wooden Cross Back Chairs">
+                <div class="product-content">
+                    <h3>Rustic Cross Back Chairs</h3>
+                    <p>Bring a touch of charm and elegance to your event. These wooden chairs are ideal for marquee events and barn weddings.</p>
+                    <a href="contact.html" class="cta-button">Check Availability & Price</a>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1511211756512-823c46e45330?fit=crop&w=600&q=80" alt="Trestle Tables">
+                <div class="product-content">
+                    <h3>Rectangular Trestle Tables</h3>
+                    <p>Standard and robust tables available in various sizes (6ft and 8ft). Essential for dining, buffets, or market stalls.</p>
+                    <a href="contact.html" class="cta-button">Check Availability & Price</a>
+                </div>
+            </div>
+
         </div>
-        <div class="chair-item">
-            <img src="https://www.studiofotobucuresti.ro/wp-content/uploads/2021/09/Cabina-lux-foto-pentru-evenimente.jpg" alt="Modern Ghost Chair">
-            <h3>Ghost Chairs (Clear Acrylic)</h3>
-            <p>Adds a touch of modern sophistication and blends seamlessly into any color scheme.</p>
-        </div>
-        <div class="chair-item">
-            <img src="https://images.unsplash.com/photo-1626245084931-15509930e461" alt="White Elegant Chair">
-            <h3>White Resin Folding Chairs</h3>
-            <p>Durable and elegant, ideal for ceremonies and adaptable to formal dining setups.</p>
-        </div>
-    </section>
-    
-    <section class="quote-section">
-        <h3>Need More Furniture or Accessories?</h3>
-        <p>Contact us today for a custom quote on seating, tables, linens, and accessories.</p>
-        <button onclick="window.location.href='contact.html';">Request Custom Quote</button>
     </section>
 
     <footer class="footer">
