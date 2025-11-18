@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storm Machine Entertainment - Chairs Hire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ==================================================== */
+        /* GENERAL CSS (MATCHING INDEX.HTML) */
+        /* ==================================================== */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top: 60px; /* Space for fixed header */
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* Header & Navigation (Standardized with INDEX.HTML) */
+        .header {
+            background-color: #000;
+            color: #fff;
+            padding: 5px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 0 20px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links.left-links, .nav-links.right-links {
+            flex-basis: 45%; 
+        }
+
+        .nav-links.left-links {
+            justify-content: flex-start;
+        }
+
+        .nav-links.right-links {
+            justify-content: flex-end;
+        }
+
+        .nav-links a {
+            padding: 0 8px;
+            font-size: 13px;
+            font-weight: bold;
+            transition: color 0.3s;
+            white-space: nowrap; 
+        }
+
+        .nav-links a:hover {
+            color: #ffcc00;
+        }
+
+        .logo {
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            height: 30px; 
+            margin-right: 5px;
+        }
+        
+        /* Footer (Matching INDEX.HTML) */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .footer-links a {
+            color: #fff;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #ffcc00;
+        }
+
+        .footer-social a {
+            font-size: 1.5em;
+            margin: 0 10px;
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: #ffcc00;
+        }
+
+        /* ==================================================== */
+        /* CHAIRS PAGE SPECIFIC CSS */
+        /* ==================================================== */
+        
+        /* HERO Section (Main Banner) */
+        .chairs-hero {
+            position: relative;
+            height: 300px;
+            /* Imagine furnizată de user */
+            background-image: url('https://thepalm.ro/wp-content/uploads/2023/05/The-Palm-40.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .chairs-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); 
+        }
+
+        .chairs-hero h1 {
+            z-index: 1;
+            font-size: 40px;
+            text-transform: uppercase;
+        }
+
+        /* Introduction & Text */
+        .intro-chairs {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        /* Chair Grid */
+        .chair-grid {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .chair-item {
+            text-align: center;
+            border: 1px solid #ddd;
+            padding-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .chair-item img {
+            width: 100%;
+            height: 300px; 
+            object-fit: cover;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .chair-item h3 {
+            font-size: 20px;
+            color: #0d83d1;
+            margin-top: 0;
+        }
+
+        .chair-item p {
+            font-size: 14px;
+            color: #555;
+            padding: 0 15px;
+        }
+        
+        /* Quote Section (Preluat din INDEX.HTML) */
+        .quote-section {
+            background-color: #f7f7f7;
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #ddd;
+            margin-top: 50px;
+        }
+
+        .quote-section h3 {
+            font-size: 28px;
+            color: #000;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .quote-section button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 30px;
+            background-color: #ffcc00;
+            color: #000;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .quote-section button:hover {
+            background-color: #e0b300;
+        }
+
+        @media (max-width: 768px) {
+            .chair-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="navbar">
+            <div class="nav-links left-links">
+                <a href="marquees.html">MARQUEES</a>
+                <a href="discos.html">DISCOS</a>
+                <a href="jaysbars.html">JAY'S BARS</a>
+                <a href="equipment.html">EQUIPMENT HIRE</a>
+                <a href="chairs.html">CHAIRS</a> 
+            </div>
+            
+            <div class="logo">
+                <a href="index.html"><img src="images/stormmachine-logo.png" alt="Storm Machine Logo" style="height: 30px;"></a>
+                <span>stormmachine</span>
+            </div>
+            
+            <div class="nav-links right-links">
+                <a href="login.html">LOGIN</a> 
+                <a href="register.html">REGISTER</a>
+                <a href="gallery.html">GALLERY</a>
+                <a href="information.html">INFORMATION</a>
+                <a href="index.html#testimonials-section">TESTIMONIALS</a> 
+                <a href="contact.html">CONTACT US</a>
+                <a href="#"><i class="fas fa-info-circle"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="chairs-hero">
+        <div class="chairs-hero-overlay"></div>
+        <h1>Our Chair & Furniture Hire</h1>
+    </section>
+
+    <section class="intro-chairs">
+        <h2>Elegant Seating Solutions for Any Event</h2>
+        <p>
+            Choose from our exclusive collection of chairs, tables, and seating accessories to complement your event style, whether it's a rustic wedding, a modern corporate gathering, or a celebratory party. We ensure comfort meets elegance with every hire.
+        </p>
+    </section>
+
+    <section class="chair-grid">
+        <div class="chair-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkFk4hyyWug_KgmPWBCa8Tc3T5lVOXolWHFg&s" alt="Rustic Wooden Chair">
+            <h3>Rustic Chiavari Chairs</h3>
+            <p>Perfect for outdoor or country-style weddings. Available with various cushion colors.</p>
+        </div>
+        <div class="chair-item">
+            <img src="https://www.studiofotobucuresti.ro/wp-content/uploads/2021/09/Cabina-lux-foto-pentru-evenimente.jpg" alt="Modern Ghost Chair">
+            <h3>Ghost Chairs (Clear Acrylic)</h3>
+            <p>Adds a touch of modern sophistication and blends seamlessly into any color scheme.</p>
+        </div>
+        <div class="chair-item">
+            <img src="https://images.unsplash.com/photo-1626245084931-15509930e461" alt="White Elegant Chair">
+            <h3>White Resin Folding Chairs</h3>
+            <p>Durable and elegant, ideal for ceremonies and adaptable to formal dining setups.</p>
+        </div>
+    </section>
+    
+    <section class="quote-section">
+        <h3>Need More Furniture or Accessories?</h3>
+        <p>Contact us today for a custom quote on seating, tables, linens, and accessories.</p>
+        <button onclick="window.location.href='contact.html';">Request Custom Quote</button>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <p><strong>CONTACT US</strong></p>
+                <p>CALL US: 0722 123 456</p>
+            </div>
+            <div class="footer-links">
+                <a href="marquees.html">MARQUEES</a>
+                <a href="discos.html">DISCOS</a>
+                <a href="jaysbars.html">JAY'S BARS</a>
+                <a href="equipment.html">EQUIPMENT HIRE</a>
+                <a href="information.html">INFORMATION</a>
+            </div>
+            <div class="footer-social">
+                <p>Follow us</p>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
