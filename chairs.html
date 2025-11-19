@@ -28,33 +28,50 @@
         /* ==================================================== */
         /* 2. HEADER & NAVIGATION (FIXED BAR) - Identical Structure */
         /* ==================================================== */
-       <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-3" id="mainNav">
-      <div class="container d-flex justify-content-between align-items-center">
-        <ul class="navbar-nav d-none d-lg-flex flex-row gap-3">
-          <li class="nav-item"><a class="nav-link" href="marquees.html">MARQUEES</a></li>
-          <li class="nav-item"><a class="nav-link" href="discos.html">DISCOS</a></li>
-          <li class="nav-item"><a class="nav-link" href="jaysbars.html">JAYS BARS</a></li>
-        </ul>
-
-        <a class="navbar-brand mx-auto" href="index.html">
-          <img src="images/logo.png" alt="Storm Machine Logo" class="navbar-logo">
-        </a>
-
-        <ul class="navbar-nav d-none d-lg-flex flex-row gap-3">
-          <li class="nav-item"><a class="nav-link" href="equipment.html">EQUIPMENT HIRE</a></li>
-          <li class="nav-item"><a class="nav-link" href="gallery.html">GALLERY</a></li>
-          <li class="nav-item"><a class="nav-link" href="information.html">INFORMATION</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">CONTACT US</a></li>
-        </ul>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-    </nav>
-  </header>
+       <header class="header">
+    <div class="navbar">
         
+        <div class="nav-links-left">
+            <a href="marquees.html">MARQUEES</a>
+            <a href="discos.html">DISCOS</a>
+            <a href="jaysbars.html">JAY'S BARS</a>
+            <a href="equipment.html">EQUIPMENT HIRE</a>
+            <a href="chairs.html">CHAIRS</a>
+        </div>
+
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="Storm Machine Logo" class="navbar-logo"></a>
+            <span>STORM MACHINE</span>
+        </div>
+        
+        <div class="nav-links-right">
+            <a href="login.html">LOGIN</a> 
+            <a href="register.html">REGISTER</a>
+            <a href="gallery.html">GALLERY</a>
+            <a href="information.html">INFORMATION</a>
+            <a href="testimonialspage.html">TESTIMONIALS</a> 
+            <a href="contact.html">CONTACT US</a>
+        </div>
+
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        
+        <div class="nav-links-mobile" id="mobileMenu">
+            <a href="marquees.html">MARQUEES</a>
+            <a href="discos.html">DISCOS</a>
+            <a href="jaysbars.html">JAY'S BARS</a>
+            <a href="equipment.html">EQUIPMENT HIRE</a>
+            <a href="chairs.html">CHAIRS</a>
+            <a href="login.html">LOGIN</a> 
+            <a href="register.html">REGISTER</a>
+            <a href="gallery.html">GALLERY</a>
+            <a href="information.html">INFORMATION</a>
+            <a href="testimonialspage.html">TESTIMONIALS</a> 
+            <a href="contact.html">CONTACT US</a>
+        </div>
+    </div>
+</header>
         /* ==================================================== */
         /* 3. FOOTER - Identical Structure */
         /* ==================================================== */
