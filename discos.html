@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Storm Machine Entertainment - Disco & DJ Hire</title>
+    <title>Storm Machine Entertainment - Discos & DJ Hire</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
@@ -26,7 +26,7 @@
         }
         
         /* ==================================================== */
-        /* 2. HEADER & NAVIGATION (FIXED BAR) - Identical Structure */
+        /* 2. HEADER & NAVIGATION (FIXED BAR) - Consistent */
         /* ==================================================== */
         .header {
             background-color: #000;
@@ -90,7 +90,7 @@
         }
         
         /* ==================================================== */
-        /* 3. FOOTER - IDENTICAL STRUCTURE */
+        /* 3. FOOTER - Consistent */
         /* ==================================================== */
         .footer {
             background-color: #333;
@@ -135,159 +135,128 @@
         }
         
         /* ==================================================== */
-        /* 4. DISCOS PAGE SPECIFIC CSS */
+        /* 4. DISCOS PAGE SPECIFIC CSS (Product Grid) */
         /* ==================================================== */
         
         .discos-hero {
             position: relative;
-            height: 350px;
-            /* Placeholder Disco Image */
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1594101833596-f949c258f338') center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
+            background-color: #000; 
+            padding: 60px 20px;
             text-align: center;
-            padding: 0 20px;
+            color: #fff;
+            border-bottom: 5px solid #0d83d1;
         }
 
-        .hero-content h1 {
+        .discos-hero h1 {
             font-size: 48px;
-            margin-bottom: 10px;
             text-transform: uppercase;
-            color: #ffcc00;
+            margin: 0;
+            color: #ffcc00; /* Gold/Yellow accent */
         }
-
-        .hero-content p {
+        
+        .discos-hero p {
+            max-width: 900px;
+            margin: 10px auto 25px;
             font-size: 20px;
-            max-width: 800px;
-            margin: 0 auto;
         }
 
-        /* Packages Section */
-        .packages-section {
+        .product-grid-section {
             padding: 50px 20px;
             text-align: center;
         }
-
-        .packages-section h2 {
-            font-size: 32px;
-            color: #0d83d1;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-        }
-
-        .package-grid {
-            max-width: 1100px;
+        
+        .product-grid {
+            max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
-        .package-card {
+        .product-card {
             background-color: #fff;
-            padding: 30px 20px;
             border: 1px solid #ddd;
-            border-top: 5px solid #0d83d1;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             border-radius: 8px;
-            transition: transform 0.3s;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: left;
         }
 
-        .package-card:hover {
+        .product-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .package-card h3 {
-            color: #000;
-            font-size: 24px;
-            margin-top: 0;
-        }
-
-        .package-card .price {
-            font-size: 30px;
-            font-weight: bold;
-            color: #ffcc00;
-            margin: 15px 0;
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
             display: block;
         }
+
+        .product-content {
+            padding: 20px;
+        }
         
-        .package-card ul {
+        .product-content h3 {
+            color: #333;
+            margin-top: 0;
+            font-size: 24px;
+        }
+        
+        .product-content p {
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .features-list {
             list-style: none;
             padding: 0;
-            text-align: left;
-            margin-top: 20px;
+            margin-top: -10px;
+            margin-bottom: 20px;
         }
 
-        .package-card ul li {
-            margin-bottom: 10px;
-            font-size: 16px;
+        .features-list li {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
         }
         
-        .package-card .cta-button {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 10px 25px;
-            background-color: #0d83d1;
-            color: #fff;
-            text-transform: uppercase;
+        .features-list i {
+            color: #0d83d1; /* Blue accent for list items */
+            margin-right: 8px;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 12px 0;
+            background-color: #ffcc00;
+            color: #000;
             font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
             border-radius: 4px;
             transition: background-color 0.3s;
         }
 
-        .package-card .cta-button:hover {
-            background-color: #0a69a8;
+        .cta-button:hover {
+            background-color: #e0b300;
         }
 
-        @media (max-width: 992px) {
-            .package-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 600px) {
-            .package-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero-content h1 {
-                font-size: 36px;
-            }
-        }
     </style>
 </head>
 <body>
 
-   <header class="header">
-    <div class="navbar">
-        
-        <div class="logo">
-            <a href="index.html"><img src="images/stormmachine-logo.png" alt="Storm Machine Logo" style="height: 30px;"></a>
-            <span>stormmachine</span>
-        </div>
-        
-        <div class="menu-toggle" id="menuToggle">
-            <i class="fas fa-bars"></i>
-        </div>
-        
-        <div class="nav-links" id="mobileMenu">
-            <a href="marquees.html">MARQUEES</a>
-            <a href="discos.html">DISCOS</a>
-            <a href="jaysbars.html">JAY'S BARS</a>
-            <a href="equipment.html">EQUIPMENT HIRE</a>
-            <a href="chairs.html">CHAIRS</a> 
-            
-            <a href="login.html">LOGIN</a> 
-            <a href="register.html">REGISTER</a>
-            <a href="gallery.html">GALLERY</a>
-            <a href="information.html">INFORMATION</a>
-            <a href="testimonialspage.html">TESTIMONIALS</a> 
-            <a href="contact.html">CONTACT US</a>
-            <a href="#"><i class="fas fa-info-circle"></i></a>
-        </div>
-    </div>
-</header>
+    <header class="header">
+        <div class="navbar">
+            <div class="nav-links left-links">
+                <a href="marquees.html">MARQUEES</a>
+                <a href="discos.html">DISCOS</a> <a href="jaysbars.html">JAY'S BARS</a>
+                <a href="equipment.html">EQUIPMENT HIRE</a>
+                <a href="chairs.html">CHAIRS</a> 
+            </div>
             
             <div class="logo">
                 <a href="index.html"><img src="images/stormmachine-logo.png" alt="Storm Machine Logo" style="height: 30px;"></a>
@@ -307,53 +276,58 @@
     </header>
 
     <section class="discos-hero">
-        <div class="hero-content">
-            <h1>Turn Up the Volume: Your Party Starts Here!</h1>
-            <p>At Storm Machine Entertainment, we specialize in creating unforgettable atmospheres. Our premium disco services deliver a full sensory experience with crystal-clear sound systems, stunning laser shows, and dynamic lighting effects guaranteed to keep the dance floor packed. Let us handle the entertainment—you just focus on having the time of your life!</p>
-        </div>
+        <h1>Professional Discos & DJ Hire</h1>
+        <p>Your one-stop solution for high-energy entertainment. We bring the best sound systems, stunning lighting, and experienced DJs to your party.</p>
+        <a href="contact.html" class="cta-button" style="width: 250px; margin: 20px auto 0;">BOOK YOUR DJ NOW</a>
     </section>
 
-    <section class="packages-section">
-        <h2>Choose Your Perfect Sound Package</h2>
+    <section class="product-grid-section">
+        <h2>Our Disco Packages</h2>
         
-        <div class="package-grid">
+        <div class="product-grid">
             
-            <div class="package-card">
-                <h3>The Silver Starter</h3>
-                <span class="price">£450</span>
-                <ul>
-                    <li><i class="fas fa-check"></i> Professional Sound System (up to 80 guests)</li>
-                    <li><i class="fas fa-check"></i> Basic LED Lighting Rig</li>
-                    <li><i class="fas fa-check"></i> 4 Hours DJ Set Time</li>
-                    <li><i class="fas fa-check"></i> Music Consultation included</li>
-                </ul>
-                <a href="contactuspage.html" class="cta-button">Book Now</a>
+            <div class="product-card">
+                <img src="images/dj-setup.jpg" alt="Professional DJ Setup">
+                <div class="product-content">
+                    <h3>Full Service DJ & Disco</h3>
+                    <p>Includes a professional DJ, comprehensive music library, custom playlists, and full sound/light setup for up to 200 guests.</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-music"></i> Experienced, vetted DJs</li>
+                        <li><i class="fas fa-music"></i> Pre-event consultation</li>
+                        <li><i class="fas fa-music"></i> Requests taken on the night</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button">Check DJ Availability</a>
+                </div>
             </div>
 
-            <div class="package-card">
-                <h3>The Gold Standard</h3>
-                <span class="price">£650</span>
-                <ul>
-                    <li><i class="fas fa-check"></i> High-Grade Sound System (up to 150 guests)</li>
-                    <li><i class="fas fa-check"></i> Full Dynamic Lighting and Laser Show</li>
-                    <li><i class="fas fa-check"></i> 5 Hours DJ Set Time</li>
-                    <li><i class="fas fa-check"></i> Wireless Microphones for Speeches</li>
-                </ul>
-                <a href="contactuspage.html" class="cta-button">Book Now</a>
+            <div class="product-card">
+                <img src="images/ring-dans.jpg" alt="Dancefloor Lighting">
+                <div class="product-content">
+                    <h3>Lighting & Effects Hire</h3>
+                    <p>Transform your venue with intelligent lighting, moving heads, color wash uplighting, and spectacular dance floor effects.</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-lightbulb"></i> LED Uplighting packages</li>
+                        <li><i class="fas fa-lightbulb"></i> Custom monograms (GOBO)</li>
+                        <li><i class="fas fa-lightbulb"></i> Smoke & Haze machines</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button">Request Lighting Quote</a>
+                </div>
             </div>
 
-            <div class="package-card">
-                <h3>The Platinum Ultimate</h3>
-                <span class="price">£990</span>
-                <ul>
-                    <li><i class="fas fa-check"></i> Concert-Quality Sound System (200+ guests)</li>
-                    <li><i class="fas fa-check"></i> Custom LED Dance Floor & Fog Machine</li>
-                    <li><i class="fas fa-check"></i> All-Night DJ Coverage (Up to 7 Hours)</li>
-                    <li><i class="fas fa-check"></i> Personalized Playlist & MC Service</li>
-                </ul>
-                <a href="contactuspage.html" class="cta-button">Book Now</a>
+            <div class="product-card">
+                <img src="images/pachet-sunet.jpg" alt="PA Sound System">
+                <div class="product-content">
+                    <h3>Sound System Dry Hire</h3>
+                    <p>Rent high-powered PA systems, speakers, subwoofers, and mixers for events where you supply the entertainment.</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-volume-up"></i> Systems for 50 to 500 guests</li>
+                        <li><i class="fas fa-volume-up"></i> Microphones included</li>
+                        <li><i class="fas fa-volume-up"></i> Easy setup instructions</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button">View Sound Equipment</a>
+                </div>
             </div>
-
+            
         </div>
     </section>
 
