@@ -23,9 +23,9 @@
             overflow-x: hidden;
         }
         
-        /* ---------------------------------------------------- */
-        /* HEADER (Asigură că navbar-ul negru este aplicat) */
-        /* ---------------------------------------------------- */
+        /* ==================================================== */
+        /* 2. HEADER & NAVIGATION (FIXED BAR) - Consistent */
+        /* ==================================================== */
         .header {
             background-color: #000;
             color: #fff;
@@ -34,23 +34,57 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            border-bottom: 3px solid #ffcc00;
         }
+
         .navbar {
-            max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; text-transform: uppercase; font-size: 13px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 0 20px;
+            text-transform: uppercase;
         }
-        .logo { order: 2; display: flex; align-items: center; flex-shrink: 0; }
-        .logo img { height: 30px; margin-right: 5px; }
-        .nav-links-left, .nav-links-right { display: flex; gap: 15px; align-items: center; }
-        .nav-links-left a, .nav-links-right a, .nav-links-mobile a { color: #fff; transition: color 0.3s; }
-        .nav-links-mobile { display: none; }
-        .menu-toggle { display: none; font-size: 24px; cursor: pointer; order: 3; }
-        
-        @media (max-width: 900px) {
-            .nav-links-left, .nav-links-right { display: none !important; }
-            .menu-toggle { display: block; }
-            .nav-links-mobile.mobile-active { display: flex; flex-direction: column; width: 100%; position: absolute; top: 60px; left: 0; background-color: #111; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); }
-            .nav-links-mobile a { padding: 15px 20px; border-bottom: 1px solid #333; width: 100%; text-align: center; color: #fff; }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links.left-links, .nav-links.right-links {
+            flex-basis: 45%; 
+        }
+
+        .nav-links.left-links {
+            justify-content: flex-start;
+        }
+
+        .nav-links.right-links {
+            justify-content: flex-end;
+        }
+
+        .nav-links a {
+            padding: 0 8px;
+            font-size: 13px;
+            font-weight: bold;
+            transition: color 0.3s;
+            white-space: nowrap; 
+        }
+
+        .nav-links a:hover {
+            color: #ffcc00;
+        }
+
+        .logo {
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            height: 30px; 
+            margin-right: 5px;
         }
         
         /* ---------------------------------------------------- */
