@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Storm Machine Entertainment - Homepage</title>
-    
+    <title>Storm Machine Entertainment - Jay's Bars Hire</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
         /* ==================================================== */
-        /* 1. BASE & FONT-URI */
+        /* 1. BASE & GENERAL CSS (Consistent) */
         /* ==================================================== */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             padding-top: 60px; /* Space for fixed header */
-            background-color: #fff;
+            background-color: #f7f7f7; 
             color: #333;
             line-height: 1.6;
         }
@@ -25,9 +24,9 @@
             text-decoration: none;
             color: inherit;
         }
-
+        
         /* ==================================================== */
-        /* 2. HEADER & NAVIGATION */
+        /* 2. HEADER & NAVIGATION (FIXED BAR) - Consistent */
         /* ==================================================== */
         .header {
             background-color: #000;
@@ -43,7 +42,7 @@
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between; 
             align-items: center;
             padding: 0 20px;
             text-transform: uppercase;
@@ -54,11 +53,24 @@
             align-items: center;
         }
 
+        .nav-links.left-links, .nav-links.right-links {
+            flex-basis: 45%; 
+        }
+
+        .nav-links.left-links {
+            justify-content: flex-start;
+        }
+
+        .nav-links.right-links {
+            justify-content: flex-end;
+        }
+
         .nav-links a {
-            padding: 0 10px;
+            padding: 0 8px;
             font-size: 13px;
             font-weight: bold;
             transition: color 0.3s;
+            white-space: nowrap; 
         }
 
         .nav-links a:hover {
@@ -66,153 +78,305 @@
         }
 
         .logo {
-            margin: 0 30px;
+            margin: 0 10px;
             display: flex;
             align-items: center;
+            flex-shrink: 0;
         }
 
         .logo img {
-            height: 30px; /* Adjust logo size */
+            height: 30px; 
             margin-right: 5px;
-        }
-
-        /* ==================================================== */
-        /* 3. HERO SECTION */
-        /* ==================================================== */
-        .hero {
-            position: relative;
-            height: 500px; /* Fixed height */
-            /* IMPORTANT: Replace the URL below with your actual hero image path, e.g., url('images/hero-home.jpg') */
-            background-image: url('https://www.mesteresti.ro/uploads/4400/cort-profesional-evenimente-extra-ambrus_5-m_12-m_2%2C8-m_Alb_Party_Da_Da_60-m%C2%B2_peste-50_Otel.jpeg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            padding-bottom: 50px;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-text {
-            z-index: 1;
-            color: #fff;
-            text-align: center;
-            text-transform: uppercase;
-        }
-
-        .hero-text h1 {
-            font-size: 28px;
-            margin: 0;
-            font-weight: 600;
-        }
-
-        .hero-text p {
-            font-size: 18px;
-            margin-top: 5px;
-            font-weight: 300;
         }
         
         /* ==================================================== */
-        /* 4. INTRO & CONTENT */
+        /* 3. FOOTER - Consistent */
         /* ==================================================== */
-        .intro-section {
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 30px 20px;
             text-align: center;
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: 0 auto;
         }
 
-        .intro-section p {
-            font-size: 16px;
-            line-height: 1.6;
+        .footer-content {
+             max-width: 1200px;
+             margin: 0 auto;
+             display: flex;
+             justify-content: space-around;
+             align-items: center;
+             flex-wrap: wrap; 
+        }
+
+        .footer-info, .footer-links, .footer-social {
+            margin: 10px 20px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            margin: 0 15px;
+            transition: color 0.3s;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: #ffcc00;
+        }
+
+        .footer-social a {
+            font-size: 1.5em;
+            margin: 0 10px;
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: #ffcc00;
+        }
+        
+        /* ==================================================== */
+        /* 4. JAY'S BARS SPECIFIC CSS */
+        /* ==================================================== */
+        
+        .bars-hero {
+            position: relative;
+            background-color: #1a1a1a; /* Dark background for bar theme */
+            padding: 50px 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .bars-hero h1 {
+            font-size: 44px;
+            text-transform: uppercase;
+            margin: 0 0 10px;
+            color: #ffcc00; /* Gold accent */
+        }
+        
+        .bars-hero p {
+            max-width: 900px;
+            margin: 0 auto 20px;
+            font-size: 20px;
+        }
+        
+        .bars-info-grid {
+            max-width: 1200px;
+            margin: 40px auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: center;
+        }
+        
+        .info-card {
+            flex-basis: calc(33% - 40px);
+            min-width: 280px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-card i {
+            font-size: 3em;
+            color: #0d83d1;
             margin-bottom: 15px;
         }
-
-        /* ==================================================== */
-        /* 5. SERVICES GRID (The 6 boxes) */
-        /* ==================================================== */
-        .services-grid {
+        
+        .bar-product-grid {
             max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 20px;
+            margin: 50px auto;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
         }
 
-        .service-box {
-            position: relative;
-            height: 250px;
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            display: flex;
-            align-items: flex-start;
-            padding: 20px;
-            cursor: pointer;
-            transition: transform 0.3s;
+        .bar-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .bar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
-        .service-box:hover {
-            transform: scale(1.02);
-        }
-
-        .service-box-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        .service-content {
-            z-index: 1;
+        .bar-card img {
             width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
+            height: 300px;
+            object-fit: cover;
+            display: block;
         }
 
-        .service-content h3 {
-            font-size: 20px;
-            margin: 0;
-            font-weight: 600;
+        .bar-content {
+            padding: 25px;
+            text-align: left;
+        }
+        
+        .bar-content h3 {
+            color: #1a1a1a;
+            margin-top: 0;
+            font-size: 28px;
+        }
+        
+        .bar-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .bar-content ul li {
+            margin-bottom: 8px;
+            color: #555;
         }
 
-        .arrow-icon {
-            font-size: 24px;
-        }
-
-        /* Specific styles for box backgrounds (REPLACE URLs with your local image paths if needed) */
-        #box-quote { background-image: url('https://eventstuff.ro/wp-content/uploads/2021/07/interior-cort-nunt-transparent.jpg'); }
-        #box-marquees { background-image: url('https://www.aristocrat-events.ro/wp-content/uploads/2024/08/image01-1024x768.jpeg'); }
-        #box-discos { background-image: url('https://eventstuff.ro/wp-content/uploads/2020/06/23.-corturi-pagoda-transparente-pt-nunta.jpeg'); }
-        #box-bars { background-image: url('https://platform.vegas.eater.com/wp-content/uploads/sites/24/chorus/uploads/chorus_asset/file/25878196/Partage_Le_Club__SabinOrr_005_HiRes.jpg?quality=90&strip=all&crop=16.666666666667%2C0%2C66.666666666667%2C100&w=2400'); }
-        #box-equipment { background-image: url('https://avantgarde.ro/wp-content/uploads/2024/04/81A_0368.jpg'); }
-        #box-gallery { background-image: url('https://thepalm.ro/wp-content/uploads/2023/05/The-Palm-40.jpg'); }
-
-        /* ==================================================== */
-        /* 6. TESTIMONIALS */
-        /* ==================================================== */
-        .testimonials {
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 14px 0;
+            margin-top: 20px;
+            background-color: #ffcc00;
+            color: #000;
+            font-weight: bold;
+            text-transform: uppercase;
             text-align: center;
-            padding: 60px 20px;
-            background-color: #f7f7f7;
+            border-radius: 4px;
+            transition: background-color 0.3s;
         }
 
-        .testimonials h2 {
-            color: #0d83d1; /* Blue color */
-            font-weight: 600;
+        .cta-button:hover {
+            background-color: #e0b300;
         }
+    </style>
+</head>
+<body>
 
-        .testimonial-grid {
-            max-width: 800px;
+    <header class="header">
+        <div class="navbar">
+            <div class="nav-links left-links">
+                <a href="marquees.html">MARQUEES</a>
+                <a href="discos.html">DISCOS</a>
+                <a href="jaysbars.html">JAY'S BARS</a> <a href="equipment.html">EQUIPMENT HIRE</a>
+                <a href="chairs.html">CHAIRS</a> 
+            </div>
+            
+            <div class="logo">
+                <a href="index.html"><img src="images/stormmachine-logo.png" alt="Storm Machine Logo" style="height: 30px;"></a>
+                <span>stormmachine</span>
+            </div>
+            
+            <div class="nav-links right-links">
+                <a href="login.html">LOGIN</a> 
+                <a href="register.html">REGISTER</a>
+                <a href="gallery.html">GALLERY</a>
+                <a href="information.html">INFORMATION</a>
+                <a href="testimonialspage.html">TESTIMONIALS</a> 
+                <a href="contact.html">CONTACT US</a>
+                <a href="#"><i class="fas fa-info-circle"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="bars-hero">
+        <h1>Jay's Mobile Bars: Drinks for Every Event</h1>
+        <p>From custom cocktails to draft beer stations, we provide a complete, professional mobile bar service tailored to your party, wedding, or corporate function.</p>
+        <a href="contact.html" class="cta-button" style="width: 300px; margin: 20px auto 0; background-color: #0d83d1; color: #fff;">GET A CUSTOM BAR QUOTE</a>
+    </section>
+    
+    <section class="bars-info-grid">
+        <div class="info-card">
+            <i class="fas fa-cocktail"></i>
+            <h3>Custom Packages</h3>
+            <p>Dry hire, full service, cash bars, or inclusive drinks packages tailored to your budget and guest count.</p>
+        </div>
+        <div class="info-card">
+            <i class="fas fa-handshake"></i>
+            <h3>Professional Staff</h3>
+            <p>Experienced mixologists and friendly bar staff ensure smooth, efficient service from start to finish.</p>
+        </div>
+        <div class="info-card">
+            <i class="fas fa-beer"></i>
+            <h3>Fully Licensed</h3>
+            <p>We handle all necessary event licensing and insurance, giving you one less thing to worry about.</p>
+        </div>
+    </section>
+
+    <section class="product-grid-section">
+        <h2 style="text-align: center; margin-bottom: 40px; color: #1a1a1a;">Our Bar Styles</h2>
+        
+        <div class="bar-product-grid">
+            
+            <div class="bar-card">
+                <img src="images/bar-led.jpg" alt="LED Mobile Bar">
+                <div class="bar-content">
+                    <h3>Modular LED Bar</h3>
+                    <p>Modern and versatile. Our LED bar can be customized to any size and features remote-controlled lighting to match your event's colors.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle" style="color:#ffcc00;"></i> Highly customizable length</li>
+                        <li><i class="fas fa-check-circle" style="color:#ffcc00;"></i> RGB color changing lights</li>
+                        <li><i class="fas fa-check-circle" style="color:#ffcc00;"></i> Sleek, contemporary finish</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button">Enquire About LED Bar Hire</a>
+                </div>
+            </div>
+
+            <div class="bar-card">
+                <img src="images/bar-rustic.jpg" alt="Rustic Wooden Bar">
+                <div class="bar-content">
+                    <h3>Rustic Wooden Bar</h3>
+                    <p>Perfect for marquee weddings, garden parties, or themed events. Crafted from reclaimed wood for a warm, charming aesthetic.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle" style="color:#ffcc00;"></i> Ideal for country & barn themes</li>
+                        <li><i class="fas fa-check-circle" style="color:#ffcc00;"></i> Available in 3m and 5m lengths</li>
+                        <li><i class="fas fa-check-circle" style="color:#ffcc00;"></i> Includes back bar storage</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button">Enquire About Rustic Bar Hire</a>
+                </div>
+            </div>
+
+            <div class="bar-card">
+                <img src="images/cocktail-staff.jpg" alt="Professional Bartenders">
+                <div class="bar-content">
+                    <h3>Cocktail Staffing Service</h3>
+                    <p>Beyond the bar structure, hire our skilled staff. We provide everything from glassware to customized drinks menus.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle" style="color:#ffcc00;"></i> Cocktail Masterclass available</li>
+                        <li><i class="fas fa-check-circle" style="color:#ffcc00;"></i> Full stock/supply packages</li>
+                        <li><i class="fas fa-check-circle" style="color:#ffcc00;"></i> Uniformed, professional service</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button">Hire Staff & Full Service</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <p><strong>CONTACT US</strong></p>
+                <p>CALL US: 0722 123 456</p>
+            </div>
+            <div class="footer-links">
+                <a href="marquees.html">MARQUEES</a>
+                <a href="discos.html">DISCOS</a>
+                <a href="jaysbars.html">JAY'S BARS</a>
+                <a href="equipment.html">EQUIPMENT HIRE</a>
+                <a href="information.html">INFORMATION</a>
+            </div>
+            <div class="footer-social">
+                <p>Follow us</p>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
