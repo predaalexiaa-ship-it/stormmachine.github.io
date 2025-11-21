@@ -6,38 +6,27 @@
   <title>Jay’s Bars</title>
   <style>
     /* ===== BARA DE SUS ===== */
-    header nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #333;
-      padding: 10px 20px;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-    header nav ul li {
-      margin: 0 15px;
-    }
-    header nav ul li.logo {
-      margin: 0 40px;
-    }
-    header nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    header nav ul li a:hover {
-      color: #ffcc00;
-    }
-    header nav ul li img {
-      height: 50px;
-    }
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('mobile-active');
+                
+                const icon = this.querySelector('i');
+                if (mobileMenu.classList.contains('mobile-active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        }
+    });
+</script>
 
     /* ===== BODY ===== */
     body {
@@ -1339,3 +1328,4 @@
 
 
 <script src="script.js"></script>
+
