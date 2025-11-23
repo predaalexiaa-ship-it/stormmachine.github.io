@@ -121,4 +121,16 @@ h1{margin:8px 0 12px;font-family:Montserrat, sans-serif;font-weight:700;font-siz
   .test-grid{grid-template-columns:1fr}
   .test-grid .left,.test-grid .right{padding:16px;border-right:none;border-left:none}
   .footer-inner{flex-direction:column;gap:12px;text-align:center}
+
+  /* CSS NOU: Clasă pentru conținutul care trebuie să apară la scroll */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 0.8s ease-out;
+}
+
+/* Clasa adăugată de JavaScript când elementul este vizibil */
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
