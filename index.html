@@ -747,8 +747,32 @@
             icon.classList.add('fa-bars');
         }
     });
+
+    // --- LOGICA DE FADE-IN PE SCROLL ---
+const fadeInSections = document.querySelectorAll('.fade-in-section');
+
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.2 // Se declanșează când 20% din element este vizibil
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target); // Oprește observarea după ce s-a afișat
+        }
+    });
+}, observerOptions);
+
+fadeInSections.forEach(section => {
+    observer.observe(section);
+});
+// ------------------------------------
 </script>
 
 </body>
 </html>
+
 
