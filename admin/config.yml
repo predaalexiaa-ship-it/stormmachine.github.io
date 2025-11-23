@@ -1,0 +1,24 @@
+backend:
+  name: github
+  # Inlocuiti '[user]/[repo]' cu datele Dvs. exacte
+  repo: '[utilizator-github]/[nume-depozit]' 
+  branch: main # Asigurati-va ca este 'main' sau 'master'
+  base_url: https://auth.decapcms.app 
+  auth_scope: repo
+
+media_folder: "images" 
+public_folder: "/images"
+
+# Definim Colectia: Editarea unui singur fișier JSON
+collections:
+  - name: "content_data"
+    label: "Datele Site-ului"
+    files:
+      - file: "_data/home.json" # Calea către fișierul JSON creat
+        label: "Pagină Acasă - Text"
+        name: "home_content"
+        fields:
+          # Numele câmpurilor din JSON trebuie să se potrivească!
+          - {label: "Titlu Principal", name: "main_title", widget: "string"}
+          - {label: "Descriere Sub Titlu", name: "description", widget: "text"}
+          - {label: "Text Buton", name: "button_text", widget: "string"}
