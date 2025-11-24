@@ -1,3 +1,0 @@
-git add .
-git commit -m "file:///C:/Users/Ciprian/Desktop/logo.png"
-git push origin main  # sau 'master', depinde de ramura principală
