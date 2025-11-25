@@ -39,6 +39,57 @@ body{
 .logo img{height:56px;display:block}
 .contact-btn{background:#e6f4ff;color:#08344e;padding:8px 12px;border-radius:3px;font-weight:700}
 
+/* NOU: Stilul pentru containerul de slide-uri */
+.hero {
+    /* Pastram proprietatile de baza */
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden; /* Ascunde imaginile in exces */
+}
+
+/* NOU: Stilul containerului care gestioneaza toate imaginile */
+.slides-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* NOU: Stilul pentru fiecare imagine (slide) */
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0; /* Toate slide-urile sunt ascunse initial */
+    transition: opacity 1.5s ease-in-out; /* Tranzitie lina intre imagini */
+    z-index: 1;
+}
+
+/* NOU: Clasa care face slide-ul vizibil */
+.hero-slide.active-slide {
+    opacity: 1;
+}
+
+/* NOU: Stratul de overlay semi-transparent rămâne peste slide-uri */
+.hero-content {
+    z-index: 10; /* Asigură că textul rămâne deasupra */
+    /* ... pastram celelalte proprietati ale hero-content ... */
+}
+
+/* Modificăm stilul bulinelor */
+.hero-dot.active-dot {
+    background-color: var(--color-light-text);
+}
+
 /* Hero */
 .hero{position:relative;min-height:520px;display:flex;align-items:flex-end;color:var(--white);overflow:hidden}
 .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center center;z-index:1}
