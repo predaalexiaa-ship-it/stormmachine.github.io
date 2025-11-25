@@ -245,4 +245,156 @@
         /* ==================================================== */
         /* 6. RESPONSIVE */
         /* ==================================================== */
-        @media (max-width: 9
+        @media (max-width: 900px) {
+            .nav-links-left, .nav-links-right { display: none !important; }
+            .menu-toggle { display: block; font-size: 24px; cursor: pointer; color: #fff; order: 3; }
+            .nav-links-mobile { 
+                display: none; flex-direction: column; width: 100%; position: absolute; 
+                top: 50px; left: 0; background-color: #111; z-index: 999;
+            }
+            .nav-links-mobile.mobile-active { display: flex; }
+            .logo {
+                position: static; 
+                transform: none;
+                order: 2;
+                margin: 0 auto;
+            }
+
+            .offering-grid {
+                grid-template-columns: 1fr; /* Single column on mobile */
+                gap: 20px;
+            }
+            
+            .footer-main { flex-direction: column; text-align: center; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="navbar">
+        <div class="nav-links nav-links-left">
+            <a href="marquees.html">MARQUEES</a>
+            <a href="discos.html">DISCOS</a>
+            <a href="jaysbars.html">JAY'S BARS</a>
+            <a href="equipment.html">EQUIPMENT HIRE</a>
+        </div>
+        <div class="logo">
+            <a href="index.html"><img src="images/stormmachine-logo.png" alt="Storm Machine Logo"></a>
+            <a href="index.html"><img src="images/logo-secondary.png" alt="Secondary Logo"></a>
+            <span>STORM MACHINE</span>
+        </div>
+        <div class="nav-links nav-links-right">
+            <a href="gallery.html">GALLERY</a>
+            <a href="information.html">INFORMATION</a>
+            <a href="contact.html">CONTACT US</a>
+        </div>
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+    <div class="nav-links-mobile" id="mobileMenu">
+        <a href="marquees.html">MARQUEES</a>
+        <a href="discos.html">DISCOS</a>
+        <a href="jaysbars.html">JAY'S BARS</a>
+        <a href="equipment.html">EQUIPMENT HIRE</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="information.html">INFORMATION</a>
+        <a href="contact.html">CONTACT US</a>
+    </div>
+</header>
+
+<section class="page-hero">
+    <h1>Discos & Entertainment</h1>
+</section>
+
+<section class="container">
+    <div class="intro-text">
+        <h2>Bring the Party to Life with Our Professional DJ and Disco Services.</h2>
+        <p>We offer fully tailored sound and lighting packages for weddings, private parties, and corporate functions. Our modern equipment ensures a fantastic atmosphere perfectly suited to your venue and event theme.
+        </p>
+    </div>
+
+    <div class="offering-grid">
+        
+        <div class="offering-item">
+            <i class="fas fa-music"></i>
+            <h4>Experienced DJs</h4>
+            <p>Our professional DJs can mix any genre, from classic hits to the latest charts, guaranteeing a busy dance floor all night long.</p>
+        </div>
+
+        <div class="offering-item">
+            <i class="fas fa-volume-up"></i>
+            <h4>High-Quality Audio Equipment</h4>
+            <p>High-fidelity sound systems, perfectly calibrated to deliver clarity and power, regardless of the size of your marquee or venue.</p>
+        </div>
+
+        <div class="offering-item">
+            <i class="fas fa-lightbulb"></i>
+            <h4>Spectacular Lighting Effects</h4>
+            <p>Intelligent lighting, dynamic colour washes, lasers, and smoke machines, all synchronized to create the perfect party ambiance.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="get-a-quote-bottom">
+    <div class="container">
+        <h3>Request a Quote</h3>
+        <p>Fill out our <a href="contact.html">contact form</a>, or alternatively call us on 01694 751380</p>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-main">
+            <div class="footer-logo-section">
+                <img src="images/stormmachine-footer-logo.png" alt="Storm Machine Footer Logo">
+                <p>Give us a call on 09999 751380</p>
+                <p>Send us an email at <a href="mailto:info@stormmachine.co.uk">info@stormmachine.co.uk</a></p>
+                <p>Or fill out our <a href="contact.html">enquiry form</a> below</p>
+            </div>
+            <div class="contact-info">
+                <p>FOLLOW US</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <p>QUICK LINKS</p>
+                <ul>
+                    <li><a href="marquees.html">Marquees</a></li>
+                    <li><a href="discos.html">Discos</a></li>
+                    <li><a href="jaysbars.html">Jay's Bars</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; STORM MACHINE 2025</p>
+            <p><a href="privacy.html">PRIVACY</a> | <a href="terms.html">TERMS</a></p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('mobile-active');
+                const icon = this.querySelector('i');
+                if (mobileMenu.classList.contains('mobile-active')) {
+                    icon.classList.remove('fa-bars'); icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
