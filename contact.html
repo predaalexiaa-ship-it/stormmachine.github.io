@@ -40,7 +40,7 @@
         a { text-decoration: none; color: inherit; }
         
         /* ==================================================== */
-        /* 1. HEADER & NAVIGATION (Identic) */
+        /* 1. HEADER & NAVIGATION (CU LOGO CENTRAT) */
         /* ==================================================== */
         .header {
             background-color: var(--color-primary);
@@ -63,14 +63,46 @@
             text-transform: uppercase; 
             font-size: 13px; 
             box-sizing: border-box;
+            position: relative; /* Esențial pentru poziționarea absolută a logo-ului */
         }
 
-        .logo { display: flex; align-items: center; order: 2; flex-shrink: 0; margin: 0 10px; }
-        .logo img { height: 40px; margin-right: 5px; border-radius: 50%; }
-        .logo span { color: var(--color-light-text); font-size: 14px; font-weight: 700; letter-spacing: 1px; display: none; }
+        .logo { 
+            /* Poziționare absolută și transformare pentru a centra pe orizontală */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            
+            display: flex; 
+            align-items: center; 
+            flex-shrink: 0; 
+            margin: 0; 
+            z-index: 1010; /* Asigură că este deasupra link-urilor */
+        }
+        
+        .logo img { 
+            height: 40px; 
+            margin-right: 5px; 
+            border-radius: 50%;
+        }
+        .logo span {
+            color: var(--color-light-text);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: none; 
+        }
 
+        /* Link-urile sunt distribuite în părțile laterale */
         .nav-links { display: flex; gap: 15px; align-items: center; flex-wrap: nowrap; }
-        .nav-links a { color: var(--color-light-text); white-space: nowrap; padding: 10px 0; transition: color 0.3s; }
+        .nav-links-left { order: 1; margin-right: auto; } 
+        .nav-links-right { order: 3; margin-left: auto; } 
+
+        .nav-links a {
+            color: var(--color-light-text); 
+            white-space: nowrap; 
+            padding: 10px 0; 
+            transition: color 0.3s; 
+        }
         .nav-links a:hover { color: var(--color-accent); }
         
         .menu-toggle, .nav-links-mobile { display: none; }
@@ -237,15 +269,21 @@
         /* 4. RESPONSIVE */
         /* ==================================================== */
         @media (max-width: 900px) {
-            /* Navbar Mobile */
+            /* Navbar Mobile (Afișează elementele în ordine flexibilă) */
             .nav-links-left, .nav-links-right { display: none !important; }
             .menu-toggle { display: block; font-size: 24px; cursor: pointer; color: #fff; order: 3; }
             .nav-links-mobile { display: none; flex-direction: column; width: 100%; position: absolute; top: 50px; left: 0; background-color: #111; z-index: 999; }
             .nav-links-mobile.mobile-active { display: flex; }
+            .logo {
+                position: static; /* Logo-ul revine la fluxul normal pe mobil */
+                transform: none;
+                order: 2;
+                margin: 0 auto;
+            }
             
             /* Form Mobile */
             .form-row, .requirements-grid {
-                grid-template-columns: 1fr; /* O singura coloana pe mobil */
+                grid-template-columns: 1fr; 
                 gap: 15px;
             }
             .form-section {
