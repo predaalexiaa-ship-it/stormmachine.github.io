@@ -94,3 +94,321 @@
             padding: 10px 0; 
             transition: color 0.3s; 
         }
+        .nav-links a:hover { color: var(--color-accent); }
+        
+        .menu-toggle, .nav-links-mobile { display: none; }
+
+        /* ==================================================== */
+        /* 2. CHAIRS HERO SECTION */
+        /* ==================================================== */
+        .page-hero {
+            position: relative;
+            height: 400px;
+            /* Imaginea de fundal cu interiorul cortului și scaunele */
+            background-image: url('images/chairs-hero-bg.jpg'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end; /* Textul jos, ca in imagine */
+            justify-content: center;
+            text-align: center;
+            padding-bottom: 40px;
+        }
+        
+        /* Overlay subtil doar jos pentru text */
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.6) 100%);
+        }
+
+        .page-hero h1 {
+            position: relative;
+            z-index: 10;
+            color: #fff;
+            font-size: 3.5em;
+            font-weight: 700;
+            text-transform: capitalize;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* ==================================================== */
+        /* 3. INTRO TEXT SECTION */
+        /* ==================================================== */
+        .intro-text {
+            text-align: center;
+            padding: 60px 20px 20px 20px;
+        }
+
+        .intro-text h2 {
+            color: var(--color-blue-text);
+            font-size: 1.4em;
+            font-weight: 700;
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+        }
+
+        .intro-text p {
+            color: #666;
+            font-size: 1em;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+        }
+
+        .intro-text h3 {
+            color: var(--color-blue-text);
+            font-size: 1.2em;
+            font-weight: 800;
+            margin-top: 20px;
+        }
+
+        /* ==================================================== */
+        /* 4. CHAIRS GRID (4 Columns) */
+        /* ==================================================== */
+        .chairs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 coloane */
+            gap: 20px;
+            padding: 40px 0 80px 0;
+            text-align: center;
+        }
+
+        .chair-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .chair-item img {
+            height: 250px; /* Înălțime fixă pentru aliniere */
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .chair-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .chair-item h4 {
+            color: var(--color-blue-text);
+            font-size: 1.1em;
+            font-weight: 900; /* Foarte bold */
+            text-transform: uppercase;
+            margin: 0 0 5px 0;
+        }
+
+        .chair-item p {
+            font-size: 0.85em;
+            color: #444;
+            line-height: 1.3;
+            max-width: 200px;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* ==================================================== */
+        /* 5. GET A QUOTE (Consistent) */
+        /* ==================================================== */
+        .get-a-quote-bottom {
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .get-a-quote-bottom h3 {
+            color: var(--color-blue-text);
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        .get-a-quote-bottom p {
+            color: var(--color-blue-text);
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+        .get-a-quote-bottom a {
+            font-weight: 700;
+            color: var(--color-blue-text);
+        }
+
+        /* ==================================================== */
+        /* 6. FOOTER (COPY FROM INDEX) */
+        /* ==================================================== */
+        .footer {
+            background-color: var(--color-footer-bg);
+            color: #ccc;
+            padding: 40px 0 10px 0;
+            font-size: 0.9em;
+        }
+        .footer-main { display: flex; justify-content: space-between; flex-wrap: wrap; }
+        .footer-logo-section { flex: 1 1 300px; margin-bottom: 20px; }
+        .footer-logo-section img { height: 40px; margin-bottom: 10px; }
+        .contact-info, .footer-nav { flex: 1 1 200px; margin-bottom: 20px; }
+        .contact-info a, .footer-nav a { color: #ccc; transition: color 0.3s; }
+        .contact-info a:hover, .footer-nav a:hover { color: var(--color-accent); }
+        .footer-socials { display: flex; gap: 15px; margin-top: 10px; }
+        .footer-bottom { border-top: 1px solid #333; padding-top: 10px; text-align: center; margin-top: 20px; }
+
+        /* ==================================================== */
+        /* 7. RESPONSIVE */
+        /* ==================================================== */
+        @media (max-width: 900px) {
+            .nav-links-left, .nav-links-right { display: none !important; }
+            .menu-toggle { display: block; font-size: 24px; cursor: pointer; color: #fff; order: 3; }
+            
+            .nav-links-mobile { 
+                display: none; flex-direction: column; width: 100%; position: absolute; 
+                top: 50px; left: 0; background-color: #111; z-index: 999;
+            }
+            .nav-links-mobile.mobile-active { display: flex; }
+            .nav-links-mobile a { padding: 15px; border-bottom: 1px solid #333; color: #fff; text-align: center; }
+
+            /* Chairs Grid Mobile */
+            .chairs-grid {
+                grid-template-columns: 1fr; /* 1 coloana pe mobil */
+                gap: 40px;
+            }
+            
+            .footer-main { flex-direction: column; text-align: center; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="navbar">
+        <div class="nav-links nav-links-left">
+            <a href="marquees.html">MARQUEES</a>
+            <a href="discos.html">DISCOS</a>
+            <a href="jaysbars.html">JAY'S BARS</a>
+            <a href="equipment.html">EQUIPMENT HIRE</a>
+        </div>
+        <div class="logo">
+            <a href="index.html"><img src="images/stormmachine-logo.png" alt="Storm Machine Logo"></a>
+            <a href="index.html"><img src="images/logo-secondary.png" alt="Secondary Logo"></a>
+            <span>STORM MACHINE</span>
+        </div>
+        <div class="nav-links nav-links-right">
+            <a href="gallery.html">GALLERY</a>
+            <a href="information.html">INFORMATION</a>
+            <a href="contact.html">CONTACT US</a>
+        </div>
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+    <div class="nav-links-mobile" id="mobileMenu">
+        <a href="marquees.html">MARQUEES</a>
+        <a href="discos.html">DISCOS</a>
+        <a href="jaysbars.html">JAY'S BARS</a>
+        <a href="equipment.html">EQUIPMENT HIRE</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="information.html">INFORMATION</a>
+        <a href="contact.html">CONTACT US</a>
+    </div>
+</header>
+
+<section class="page-hero">
+    <h1>Chairs</h1>
+</section>
+
+<section class="container intro-text">
+    <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    
+    <h3>We offer a wide variety of chairs the most popular ones are:</h3>
+</section>
+
+<section class="container">
+    <div class="chairs-grid">
+        
+        <div class="chair-item">
+            <img src="images/chair-chivari.png" alt="Chivari Chair">
+            <h4>CHIVARI</h4>
+            <p>Available in various colours with seat pads</p>
+        </div>
+
+        <div class="chair-item">
+            <img src="images/chair-crossback.png" alt="Wooden Cross Back Chair">
+            <h4>WOODEN CROSS BACK</h4>
+            <p>Great for creating a rustic natural look</p>
+        </div>
+
+        <div class="chair-item">
+            <img src="images/chair-banqueting.png" alt="Banqueting Chair">
+            <h4>BANQUETING</h4>
+            <p>Nam ipsum dolor sit amet consectet</p>
+        </div>
+
+        <div class="chair-item">
+            <img src="images/chair-plastic.png" alt="Plastic Chair">
+            <h4>PLASTIC</h4>
+            <p>Ideal for outdoor events and shows</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="get-a-quote-bottom">
+    <div class="container">
+        <h3>Get a Quote</h3>
+        <p>Fill out our <a href="contact.html">contact form</a>, or alternatively call us on 01694 751380</p>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-main">
+            <div class="footer-logo-section">
+                <img src="images/stormmachine-footer-logo.png" alt="Storm Machine Footer Logo">
+                <p>Give us a call on 09999 751380</p>
+                <p>Send us an email at <a href="mailto:info@stormmachine.co.uk">info@stormmachine.co.uk</a></p>
+                <p>Or fill out our <a href="contact.html">enquiry form</a> below</p>
+            </div>
+            <div class="contact-info">
+                <p>FOLLOW US</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <p>QUICK LINKS</p>
+                <ul>
+                    <li><a href="marquees.html">Marquees</a></li>
+                    <li><a href="discos.html">Discos</a></li>
+                    <li><a href="jaysbars.html">Jay's Bars</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; STORM MACHINE 2025</p>
+            <p><a href="privacy.html">PRIVACY</a> | <a href="terms.html">TERMS</a></p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('mobile-active');
+                const icon = this.querySelector('i');
+                if (mobileMenu.classList.contains('mobile-active')) {
+                    icon.classList.remove('fa-bars'); icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
