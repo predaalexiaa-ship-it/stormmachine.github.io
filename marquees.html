@@ -3,361 +3,513 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Storm Machine Entertainment - Marquees Hire</title>
+    <title>Storm Machine Entertainment - Marquees</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     
     <style>
         /* ==================================================== */
-        /* 1. BASE & GENERAL CSS (Consistent) */
+        /* 0. ROOT VARIABLES & GLOBAL STYLES (COPIATE DIN INDEX.HTML) */
         /* ==================================================== */
+        :root {
+            --color-primary: #000;
+            --color-secondary: #007bff; 
+            --color-accent: #FFCC00; 
+            --color-dark-text: #333;
+            --color-light-text: #fff;
+            --color-footer-bg: #1c1c1c;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
-            padding: 0;
-            padding-top: 60px; /* Space for fixed header */
-            background-color: #f7f7f7; 
-            color: #333;
             line-height: 1.6;
+            color: var(--color-dark-text);
+            padding-top: 60px; 
+            overflow-x: hidden;
+            background-color: #f4f4f4;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            color: var(--color-dark-text);
+            line-height: 1.2;
         }
 
         a {
             text-decoration: none;
-            color: inherit;
+            color: var(--color-dark-text);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         /* ==================================================== */
-        /* 2. HEADER & NAVIGATION (FIXED BAR) - Consistent */
+        /* 1. HEADER & NAVIGATION STYLES (COPIATE DIN INDEX.HTML) */
         /* ==================================================== */
         .header {
-            background-color: #000;
-            color: #fff;
+            background-color: var(--color-primary);
+            color: var(--color-light-text);
             padding: 5px 0;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         .navbar {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: flex; 
             justify-content: space-between; 
-            align-items: center;
-            padding: 0 20px;
-            text-transform: uppercase;
+            align-items: center; 
+            padding: 0 20px; 
+            text-transform: uppercase; 
+            font-size: 13px; 
+            box-sizing: border-box;
         }
 
-        .nav-links {
-            display: flex;
-            align-items: center;
+        .logo { 
+            display: flex; 
+            align-items: center; 
+            order: 2; 
+            flex-shrink: 0; 
+            margin: 0 10px; 
+        }
+        .logo img { 
+            height: 40px; 
+            margin-right: 5px; 
+            border-radius: 50%;
+        }
+        .logo span {
+            color: var(--color-light-text);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: none; 
         }
 
-        .nav-links.left-links, .nav-links.right-links {
-            flex-basis: 45%; 
+        .nav-links { 
+            display: flex; 
+            gap: 15px; 
+            align-items: center; 
+            flex-wrap: nowrap; 
         }
-
-        .nav-links.left-links {
-            justify-content: flex-start;
+        .nav-links-left { 
+            order: 1; 
         }
-
-        .nav-links.right-links {
-            justify-content: flex-end;
+        .nav-links-right { 
+            order: 3; 
         }
 
         .nav-links a {
-            padding: 0 8px;
-            font-size: 13px;
-            font-weight: bold;
-            transition: color 0.3s;
+            color: var(--color-light-text); 
             white-space: nowrap; 
+            padding: 10px 0; 
+            transition: color 0.3s; 
+            text-decoration: none;
         }
-
-        .nav-links a:hover {
-            color: #ffcc00;
+        .nav-links a:hover { 
+            color: var(--color-accent); 
         }
-
-        .logo {
-            margin: 0 10px;
+        
+        /* Menu Toggle (Hamburger) - Ascuns pe desktop */
+        .menu-toggle, .nav-links-mobile { 
+            display: none; 
+        }
+        
+        /* ==================================================== */
+        /* 2. HERO SECTION (PAGINI INTERNE) - STIL NOU */
+        /* ==================================================== */
+        .page-hero {
+            position: relative;
+            height: 350px; /* Înălțime mai mică pentru pagini interne */
+            background-image: url('images/marquees-hero-bg.jpg'); /* Imaginea din marquees.jpg */
+            background-size: cover;
+            background-position: center 30%;
             display: flex;
             align-items: center;
-            flex-shrink: 0;
-        }
-
-        .logo img {
-            height: 30px; 
-            margin-right: 5px;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-light-text);
         }
         
+        /* Overlay-ul negru */
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4); 
+            z-index: 1; 
+        }
+
+        .page-hero h1 {
+            z-index: 10;
+            color: var(--color-light-text);
+            font-size: 3em;
+            text-transform: uppercase;
+        }
+
         /* ==================================================== */
-        /* 3. FOOTER - Consistent */
+        /* 3. CONTENT SECTIONS (MARQUEES.JPG SPECIFIC) */
+        /* ==================================================== */
+        
+        /* Secțiunea Intro/Text Principal */
+        .marquee-intro {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .marquee-intro h2 {
+            color: var(--color-secondary); /* Albastru, ca in imagine */
+            font-size: 1.5em;
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+            font-weight: 400;
+        }
+        .marquee-intro p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1em;
+        }
+        
+        /* Grid de 3 Imagini */
+        .marquee-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px 0 60px 0;
+        }
+        
+        .marquee-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Secțiunea Get a Quote Bottom */
+        .get-a-quote-bottom {
+            background-color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+        
+        .get-a-quote-bottom h3 {
+            color: var(--color-secondary); /* Albastru */
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        .get-a-quote-bottom p {
+            font-size: 1.1em;
+        }
+        .get-a-quote-bottom a {
+            color: var(--color-secondary);
+            font-weight: 700;
+        }
+
+        /* ==================================================== */
+        /* 4. FOOTER STYLES (COPIATE DIN INDEX.HTML) */
         /* ==================================================== */
         .footer {
-            background-color: #333;
-            color: #fff;
-            padding: 30px 20px;
-            text-align: center;
+            background-color: var(--color-footer-bg);
+            color: #ccc;
+            padding: 40px 0 10px 0;
+            font-size: 0.9em;
         }
 
-        .footer-content {
-             max-width: 1200px;
-             margin: 0 auto;
-             display: flex;
-             justify-content: space-around;
-             align-items: center;
-             flex-wrap: wrap; 
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
         }
 
-        .footer-info, .footer-links, .footer-social {
-            margin: 10px 20px;
-        }
-
-        .footer-links a {
-            color: #fff;
-            margin: 0 15px;
-            transition: color 0.3s;
-            display: inline-block;
-        }
-
-        .footer-links a:hover {
-            color: #ffcc00;
-        }
-
-        .footer-social a {
-            font-size: 1.5em;
-            margin: 0 10px;
-            color: #fff;
-            transition: color 0.3s;
-        }
-
-        .footer-social a:hover {
-            color: #ffcc00;
+        .footer-logo-section {
+            flex: 1 1 300px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
         
-        /* ==================================================== */
-        /* 4. MARQUEES PAGE SPECIFIC CSS (Product Grid) */
-        /* ==================================================== */
-        
-        .marquees-hero {
-            position: relative;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/galerie-cort.jpg'); /* Folosim imaginea din galerie ca fundal */
-            background-size: cover;
-            background-position: center;
-            padding: 80px 20px;
-            text-align: center;
-            color: #fff;
+        .footer-logo-section img {
+            height: 40px;
+            margin-bottom: 10px;
         }
 
-        .marquees-hero h1 {
-            font-size: 48px;
-            text-transform: uppercase;
-            margin: 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-        
-        .marquees-hero p {
-            max-width: 900px;
-            margin: 15px auto 25px;
-            font-size: 20px;
-        }
-
-        .product-grid-section {
-            padding: 50px 20px;
-            text-align: center;
-        }
-        
-        .product-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .product-card {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: left;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .product-content {
-            padding: 20px;
-        }
-        
-        .product-content h3 {
-            color: #0d83d1;
-            margin-top: 0;
-            font-size: 24px;
-        }
-        
-        .product-content p {
-            font-size: 15px;
+        .contact-info {
+            flex: 1 1 200px;
             margin-bottom: 20px;
         }
+
+        .contact-info p {
+            margin: 5px 0;
+        }
         
-        .features-list {
+        .contact-info a {
+            color: var(--color-accent);
+            text-decoration: underline;
+        }
+        
+        .footer-nav {
+            flex: 1 1 200px;
+            margin-bottom: 20px;
+        }
+        .footer-nav ul {
             list-style: none;
             padding: 0;
-            margin-top: -10px;
-            margin-bottom: 20px;
+        }
+        .footer-nav ul li a {
+            color: #ccc;
+            transition: color 0.3s;
+            line-height: 2;
+        }
+        .footer-nav ul li a:hover {
+            color: var(--color-accent);
         }
 
-        .features-list li {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 5px;
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 10px;
+            text-align: center;
+            margin-top: 20px;
         }
         
-        .features-list i {
-            color: #ffcc00;
-            margin-right: 8px;
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
         }
-
-        .cta-button {
-            display: block;
-            width: 100%;
-            padding: 12px 0;
-            background-color: #ffcc00;
-            color: #000;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-align: center;
-            border-radius: 4px;
-            transition: background-color 0.3s;
+        
+        .footer-socials a {
+            color: var(--color-accent);
+            font-size: 1.5em;
+            transition: color 0.3s;
         }
-
-        .cta-button:hover {
-            background-color: #e0b300;
+        .footer-socials a:hover {
+            color: var(--color-light-text);
         }
+        
+        /* ==================================================== */
+        /* 5. RESPONSIVENESS (COPIATE DIN INDEX.HTML) */
+        /* ==================================================== */
 
-        @media (max-width: 600px) {
-            .marquees-hero h1 {
-                font-size: 36px;
+        @media (max-width: 900px) {
+            /* Navbar Mobile */
+            .nav-links-left, .nav-links-right { 
+                display: none !important; 
+            }
+            .menu-toggle { 
+                display: block; 
+                font-size: 24px; 
+                cursor: pointer; 
+                padding: 5px 10px; 
+                order: 3; 
+                color: var(--color-light-text); 
+                position: relative; 
+                z-index: 1001; 
+            }
+            .nav-links-mobile { 
+                display: none; 
+                flex-direction: column; 
+                width: 100%; 
+                position: absolute; 
+                top: 50px; 
+                left: 0; 
+                background-color: #111; 
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+                transition: transform 0.3s ease-out; 
+                transform: translateY(-100%); 
+            }
+            .nav-links-mobile.mobile-active { 
+                display: flex;
+                transform: translateY(0); 
+            }
+            .nav-links-mobile a { 
+                padding: 15px 20px; 
+                border-bottom: 1px solid #333; 
+                width: 100%; 
+                text-align: center; 
+                color: var(--color-light-text);
+            }
+            
+            /* Marquees Grid Mobile */
+            .marquee-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Footer Mobile */
+            .footer-main {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
             }
         }
     </style>
+    
 </head>
 <body>
 
-    <header class="header">
-        <div class="navbar">
-            <div class="nav-links left-links">
-                <a href="marquees.html">MARQUEES</a> <a href="discos.html">DISCOS</a>
-                <a href="jaysbars.html">JAY'S BARS</a>
-                <a href="equipment.html">EQUIPMENT HIRE</a>
-                <a href="chairs.html">CHAIRS</a> 
-            </div>
-            
-            <div class="logo">
-                <a href="index.html"><img src="images/stormmachine-logo.png" alt="Storm Machine Logo" style="height: 30px;"></a>
-                <span>stormmachine</span>
-            </div>
-            
-            <div class="nav-links right-links">
-                <a href="login.html">LOGIN</a> 
-                <a href="register.html">REGISTER</a>
-                <a href="gallery.html">GALLERY</a>
-                <a href="information.html">INFORMATION</a>
-                <a href="testimonialspage.html">TESTIMONIALS</a> 
-                <a href="contact.html">CONTACT US</a>
-                <a href="#"><i class="fas fa-info-circle"></i></a>
-            </div>
-        </div>
-    </header>
-
-    <section class="marquees-hero">
-        <h1>Bespoke Marquee Hire for Any Occasion</h1>
-        <p>Providing beautiful, robust, and customized temporary structures for weddings, festivals, and large events across the region.</p>
-        <a href="contact.html" class="cta-button" style="width: 250px; margin: 20px auto 0; background-color: #0d83d1; color: #fff;">GET A QUOTE TODAY</a>
-    </section>
-
-    <section class="product-grid-section">
-        <h2>Our Marquee Types</h2>
+<header class="header">
+    <div class="navbar">
         
-        <div class="product-grid">
+        <div class="nav-links nav-links-left">
+            <a href="marquees.html">MARQUEES</a>
+            <a href="discos.html">DISCOS</a>
+            <a href="jaysbars.html">JAY'S BARS</a>
+            <a href="equipment.html">EQUIPMENT HIRE</a>
+        </div>
+
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/stormmachine-logo.png" alt="Storm Machine Logo">
+            </a>
+            <a href="index.html">
+                <img src="images/logo-secondary.png" alt="Secondary Logo">
+            </a>
+            <span>STORM MACHINE</span>
+        </div>
+        
+        <div class="nav-links nav-links-right">
+            <a href="gallery.html">GALLERY</a>
+            <a href="information.html">INFORMATION</a>
+            <a href="contact.html">CONTACT US</a>
+        </div>
+
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        
+    </div>
+
+    <div class="nav-links-mobile" id="mobileMenu">
+        <a href="marquees.html">MARQUEES</a>
+        <a href="discos.html">DISCOS</a>
+        <a href="jaysbars.html">JAY'S BARS</a>
+        <a href="equipment.html">EQUIPMENT HIRE</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="information.html">INFORMATION</a>
+        <a href="contact.html">CONTACT US</a>
+    </div>
+</header>
+
+<section class="page-hero">
+    <h1>Marquees</h1>
+</section>
+
+<section class="marquee-intro">
+    <div class="container">
+        <h2>Whatever your occasion may be, be it a wedding, a party, an exhibition, hospitality or corporate event we have a marquee to suit you.</h2>
+        <p>Our clearspan marquees are either 9m or 12m wide by 3m bays which allows for a variety of sizes depending on your event.</p>
+    </div>
+</section>
+
+<section class="container">
+    <div class="marquee-grid">
+        <img src="images/marquee-grid-1.jpg" alt="Marquee view from above">
+        
+        <img src="images/marquee-grid-2.jpg" alt="Marquee side view with arches">
+        
+        <img src="images/marquee-grid-3.jpg" alt="Marquee interior with lighting">
+    </div>
+</section>
+
+<section class="get-a-quote-bottom">
+    <div class="container">
+        <h3>Get a Quote</h3>
+        <p>Fill out our <a href="contact.html">contact form</a>, or alternatively call us on <a href="tel:01694751380">01694 751380</a></p>
+    </div>
+</section>
+
+
+<footer class="footer">
+    <div class="container">
+        
+        <div class="footer-main">
             
-            <div class="product-card">
-                <img src="images/cort-traditional.jpg" alt="Traditional Pole Marquee">
-                <div class="product-content">
-                    <h3>Traditional Marquees</h3>
-                    <p>The classic choice, featuring sweeping roof lines and central poles. Ideal for rustic weddings and elegant garden parties.</p>
-                    <ul class="features-list">
-                        <li><i class="fas fa-wrench"></i> Requires guy ropes and space</li>
-                        <li><i class="fas fa-wrench"></i> Best on grass surfaces</li>
-                        <li><i class="fas fa-wrench"></i> Sizes up to 500 guests</li>
-                    </ul>
-                    <a href="contact.html" class="cta-button">Enquire About Traditional Hire</a>
+            <div class="footer-logo-section">
+                <img src="images/stormmachine-footer-logo.png" alt="Storm Machine Footer Logo">
+                <p>Give us a call on 09999 751380</p>
+                <p>Send us an email at <a href="mailto:info@stormmachine.co.uk">info@stormmachine.co.uk</a></p>
+                <p>Or fill out our <a href="contact.html">enquiry form</a> below</p>
+            </div>
+            
+            <div class="contact-info">
+                <p>FOLLOW US</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
-
-            <div class="product-card">
-                <img src="images/cort-cadru.jpg" alt="Clearspan Frame Marquee">
-                <div class="product-content">
-                    <h3>Clearspan Frame Marquees</h3>
-                    <p>Modern, versatile, and suitable for all surfaces. No internal poles mean maximum usable space for your setup.</p>
-                    <ul class="features-list">
-                        <li><i class="fas fa-check"></i> Can be set up on hard surfaces</li>
-                        <li><i class="fas fa-check"></i> Modular, extendable design</li>
-                        <li><i class="fas fa-check"></i> Clear walls and roofs optional</li>
-                    </ul>
-                    <a href="contact.html" class="cta-button">Enquire About Frame Hire</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <img src="images/cort-strech.jpg" alt="Stretch Tent/Tipi Marquee">
-                <div class="product-content">
-                    <h3>Stretch Tents & Tipis</h3>
-                    <p>For a contemporary, relaxed vibe. Highly adaptable structures that can be shaped to fit awkward spaces and landscapes.</p>
-                    <ul class="features-list">
-                        <li><i class="fas fa-leaf"></i> Unique, organic aesthetic</li>
-                        <li><i class="fas fa-leaf"></i> Excellent for festival themes</li>
-                        <li><i class="fas fa-leaf"></i> Flexible open or closed sides</li>
-                    </ul>
-                    <a href="contact.html" class="cta-button">Enquire About Stretch Hire</a>
-                </div>
+            
+            <div class="footer-nav">
+                <p>QUICK LINKS</p>
+                <ul>
+                    <li><a href="marquees.html">Marquees</a></li>
+                    <li><a href="discos.html">Discos</a></li>
+                    <li><a href="jaysbars.html">Jay's Bars</a></li>
+                </ul>
             </div>
             
         </div>
-    </section>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-info">
-                <p><strong>CONTACT US</strong></p>
-                <p>CALL US: 0722 123 456</p>
-            </div>
-            <div class="footer-links">
-                <a href="marquees.html">MARQUEES</a>
-                <a href="discos.html">DISCOS</a>
-                <a href="jaysbars.html">JAY'S BARS</a>
-                <a href="equipment.html">EQUIPMENT HIRE</a>
-                <a href="information.html">INFORMATION</a>
-            </div>
-            <div class="footer-social">
-                <p>Follow us</p>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-            </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; STORM MACHINE 2025</p>
+            <p>
+                <a href="privacy.html">PRIVACY</a> | 
+                <a href="terms.html">TERMS</a>
+            </p>
         </div>
-    </footer>
+        
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('mobile-active');
+                
+                const icon = this.querySelector('i');
+                if (mobileMenu.classList.contains('mobile-active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Inchide meniul mobil la click pe un link
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    closeMobileMenu();
+                });
+            });
+        }
+        
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('mobile-active');
+            // Reseteaza iconita la hamburger
+            const icon = document.getElementById('menuToggle').querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+</script>
 
 </body>
 </html>
