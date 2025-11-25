@@ -551,16 +551,24 @@
     </div>
 </header>
 
-<section class="hero">
+<section class="hero" id="heroSlider">
+    <div class="slides-container">
+        <div class="hero-slide active-slide" style="background-image: url('images/echipamente pagina 4.jpeg');"></div>
+        <div class="hero-slide" style="background-image: url('images/hero-slide-2.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('images/hero-slide-3.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('images/hero-slide-4.jpg');"></div>
+    </div>
+    
     <div class="hero-content">
         <h1>MARQUEE, DISCOS, BARS AND EQUIPMENT HIRE FOR</h1>
         <p>Weddings, Corporate Events & Parties</p>
     </div>
-    <div class="hero-dots">
-        <span class="hero-dot active"></span>
-        <span class="hero-dot"></span>
-        <span class="hero-dot"></span>
-        <span class="hero-dot"></span>
+    
+    <div class="hero-dots" id="heroDots">
+        <span class="hero-dot active-dot" data-slide="1"></span>
+        <span class="hero-dot" data-slide="2"></span>
+        <span class="hero-dot" data-slide="3"></span>
+        <span class="hero-dot" data-slide="4"></span>
     </div>
 </section>
 
@@ -769,6 +777,7 @@ fadeInSections.forEach(section => {
 
 </body>
 </html>
+
 
 
 
