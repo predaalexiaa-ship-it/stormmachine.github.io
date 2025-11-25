@@ -72,4 +72,318 @@
             flex-shrink: 0; 
             margin: 0 10px; 
         }
-        .logo
+        .logo img { 
+            height: 40px; 
+            margin-right: 5px; 
+            border-radius: 50%;
+        }
+        .logo span {
+            color: var(--color-light-text);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: none; 
+        }
+
+        .nav-links { display: flex; gap: 15px; align-items: center; flex-wrap: nowrap; }
+        .nav-links-left { order: 1; }
+        .nav-links-right { order: 3; }
+
+        .nav-links a {
+            color: var(--color-light-text); 
+            white-space: nowrap; 
+            padding: 10px 0; 
+            transition: color 0.3s; 
+        }
+        .nav-links a:hover { color: var(--color-accent); }
+        
+        .menu-toggle, .nav-links-mobile { display: none; }
+
+        /* ==================================================== */
+        /* 2. TESTIMONIALS HERO SECTION */
+        /* ==================================================== */
+        .page-hero {
+            position: relative;
+            height: 400px;
+            /* Imaginea de fundal (cort cu oameni) */
+            background-image: url('images/testimonials-hero-bg.jpg'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end; 
+            justify-content: center;
+            text-align: center;
+            padding-bottom: 40px;
+        }
+        
+        /* Overlay */
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .page-hero h1 {
+            position: relative;
+            z-index: 10;
+            color: #fff;
+            font-size: 3.5em;
+            font-weight: 500;
+            text-transform: capitalize;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* ==================================================== */
+        /* 3. TESTIMONIALS LIST STYLES */
+        /* ==================================================== */
+        .testimonials-container {
+            max-width: 800px; /* Lățime mai îngustă pentru citire ușoară */
+            margin: 0 auto;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .testimonial-entry {
+            margin-bottom: 30px;
+        }
+
+        /* Titlul albastru (cyan) */
+        .testimonial-entry h3 {
+            color: var(--color-highlight-blue);
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: none; /* Păstrează majusculele/minusculele naturale */
+        }
+
+        /* Textul descrierii */
+        .testimonial-entry p {
+            font-size: 0.95em;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        /* Numele persoanelor */
+        .testimonial-entry .names {
+            font-size: 0.9em;
+            font-weight: 700;
+            color: #000;
+            display: block;
+            margin-bottom: 30px;
+        }
+
+        /* Linia orizontală */
+        .testimonial-divider {
+            border: 0;
+            border-top: 1px solid #999;
+            width: 100%;
+            margin-bottom: 40px;
+            opacity: 0.5;
+        }
+
+        /* ==================================================== */
+        /* 4. GET A QUOTE (Consistent) */
+        /* ==================================================== */
+        .get-a-quote-bottom {
+            padding: 20px 20px 60px 20px;
+            text-align: center;
+        }
+        
+        .get-a-quote-bottom h3 {
+            color: var(--color-dark-blue-text);
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        .get-a-quote-bottom p {
+            color: var(--color-dark-blue-text);
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+        .get-a-quote-bottom a {
+            font-weight: 700;
+            color: var(--color-dark-blue-text);
+        }
+
+        /* ==================================================== */
+        /* 5. FOOTER (Identic cu Index/Chairs) */
+        /* ==================================================== */
+        .footer {
+            background-color: var(--color-footer-bg);
+            color: #ccc;
+            padding: 40px 0 10px 0;
+            font-size: 0.9em;
+        }
+        .footer-main { display: flex; justify-content: space-between; flex-wrap: wrap; }
+        .footer-logo-section { flex: 1 1 300px; margin-bottom: 20px; }
+        .footer-logo-section img { height: 40px; margin-bottom: 10px; }
+        .contact-info, .footer-nav { flex: 1 1 200px; margin-bottom: 20px; }
+        .contact-info a, .footer-nav a { color: #ccc; transition: color 0.3s; }
+        .contact-info a:hover, .footer-nav a:hover { color: var(--color-accent); }
+        .footer-socials { display: flex; gap: 15px; margin-top: 10px; }
+        .footer-bottom { border-top: 1px solid #333; padding-top: 10px; text-align: center; margin-top: 20px; }
+
+        /* ==================================================== */
+        /* 6. RESPONSIVE */
+        /* ==================================================== */
+        @media (max-width: 900px) {
+            .nav-links-left, .nav-links-right { display: none !important; }
+            .menu-toggle { display: block; font-size: 24px; cursor: pointer; color: #fff; order: 3; }
+            
+            .nav-links-mobile { 
+                display: none; flex-direction: column; width: 100%; position: absolute; 
+                top: 50px; left: 0; background-color: #111; z-index: 999;
+            }
+            .nav-links-mobile.mobile-active { display: flex; }
+            .nav-links-mobile a { padding: 15px; border-bottom: 1px solid #333; color: #fff; text-align: center; }
+            
+            .footer-main { flex-direction: column; text-align: center; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="navbar">
+        <div class="nav-links nav-links-left">
+            <a href="marquees.html">MARQUEES</a>
+            <a href="discos.html">DISCOS</a>
+            <a href="jaysbars.html">JAY'S BARS</a>
+            <a href="equipment.html">EQUIPMENT HIRE</a>
+        </div>
+        <div class="logo">
+            <a href="index.html"><img src="images/stormmachine-logo.png" alt="Storm Machine Logo"></a>
+            <a href="index.html"><img src="images/logo-secondary.png" alt="Secondary Logo"></a>
+            <span>STORM MACHINE</span>
+        </div>
+        <div class="nav-links nav-links-right">
+            <a href="gallery.html">GALLERY</a>
+            <a href="information.html">INFORMATION</a>
+            <a href="contact.html">CONTACT US</a>
+        </div>
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+    <div class="nav-links-mobile" id="mobileMenu">
+        <a href="marquees.html">MARQUEES</a>
+        <a href="discos.html">DISCOS</a>
+        <a href="jaysbars.html">JAY'S BARS</a>
+        <a href="equipment.html">EQUIPMENT HIRE</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="information.html">INFORMATION</a>
+        <a href="contact.html">CONTACT US</a>
+    </div>
+</header>
+
+<section class="page-hero">
+    <h1>Testimonials</h1>
+</section>
+
+<section class="testimonials-container">
+    
+    <div class="testimonial-entry">
+        <h3>"A perfect day"</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+        <span class="names">Sam & Louise</span>
+        <hr class="testimonial-divider">
+    </div>
+
+    <div class="testimonial-entry">
+        <h3>"The marquee looked magnificent"</h3>
+        <p>Lorem ipsum dolor sit amet, consect etur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+        <span class="names">Peter & Hazel</span>
+        <hr class="testimonial-divider">
+    </div>
+
+    <div class="testimonial-entry">
+        <h3>"Thank you for your service"</h3>
+        <p>Lorem ipsum dolor sit amet, consect etur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+        <span class="names">William & Hannah</span>
+        <hr class="testimonial-divider">
+    </div>
+
+    <div class="testimonial-entry">
+        <h3>"Superb job!"</h3>
+        <p>Lorem ipsum dolor sit amet, consect etur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+        <span class="names">Ben & Holly</span>
+        <hr class="testimonial-divider">
+    </div>
+
+    <div class="testimonial-entry">
+        <h3>"The facilities were top class"</h3>
+        <p>Lorem ipsum dolor sit amet, consect etur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+        <span class="names">Oscar & Charlotte</span>
+        <hr class="testimonial-divider">
+    </div>
+    
+    <div class="testimonial-entry">
+        <h3>"A perfect day"</h3>
+        <p>Lorem ipsum dolor sit amet, consect etur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+        <span class="names">Sian & Abigail</span>
+        <hr class="testimonial-divider">
+    </div>
+
+</section>
+
+<section class="get-a-quote-bottom">
+    <h3>Get a Quote</h3>
+    <p>Fill out our <a href="contact.html">contact form</a>, or alternatively call us on 01694 751380</p>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-main">
+            <div class="footer-logo-section">
+                <img src="images/stormmachine-footer-logo.png" alt="Storm Machine Footer Logo">
+                <p>Give us a call on 09999 751380</p>
+                <p>Send us an email at <a href="mailto:info@stormmachine.co.uk">info@stormmachine.co.uk</a></p>
+                <p>Or fill out our <a href="contact.html">enquiry form</a> below</p>
+            </div>
+            <div class="contact-info">
+                <p>FOLLOW US</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <p>QUICK LINKS</p>
+                <ul>
+                    <li><a href="marquees.html">Marquees</a></li>
+                    <li><a href="discos.html">Discos</a></li>
+                    <li><a href="jaysbars.html">Jay's Bars</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; STORM MACHINE 2025</p>
+            <p><a href="privacy.html">PRIVACY</a> | <a href="terms.html">TERMS</a></p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('mobile-active');
+                const icon = this.querySelector('i');
+                if (mobileMenu.classList.contains('mobile-active')) {
+                    icon.classList.remove('fa-bars'); icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
