@@ -134,71 +134,99 @@
         }
         
         /* ==================================================== */
-        /* 2. HERO SECTION (BANNER) STYLES */
-        /* (RECREARE STIL DIN IMAGINEA C08864.JPG) */
-        /* ==================================================== */
-        .hero {
-            position: relative;
-            height: 500px; /* Înălțime ajustabilă */
-            background-image: url('images/marquees pagina 2.jpeg'); /* Folosiți imaginea dumneavoastră */
-            background-size: cover;
-            background-position: center 30%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--color-light-text);
-        }
+/* 2. HERO SECTION (BANNER) STYLES (ACTUALIZAT PENTRU SLIDER) */
+/* ==================================================== */
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.4); /* Strat semi-transparent negru */
-        }
+/* Stilul de bază al containerului (fără background-image) */
+.hero {
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden; /* Ascunde imaginile in exces */
+}
 
-        .hero-content {
-            z-index: 10;
-            max-width: 800px;
-            padding-top: 50px; /* Pentru a evita headerul fix */
-        }
+/* Stilul containerului care gestionează toate imaginile */
+.slides-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 
-        .hero-content h1 {
-            font-size: 2.5em;
-            margin: 0 0 10px 0;
-            color: var(--color-light-text);
-            text-transform: uppercase;
-        }
-        
-        .hero-content p {
-            font-size: 1.5em;
-            color: var(--color-accent); /* Text galben pentru accent */
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-        
-        /* Swiper/Dots Indicator (Puncte din partea de jos a bannerului) */
-        .hero-dots {
-            position: absolute;
-            bottom: 20px;
-            z-index: 10;
-            display: flex;
-            gap: 8px;
-        }
-        .hero-dot {
-            width: 10px;
-            height: 10px;
-            background-color: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .hero-dot.active {
-            background-color: var(--color-light-text);
-        }
+/* Stilul pentru fiecare imagine (slide) */
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0; /* Toate slide-urile sunt ascunse initial */
+    transition: opacity 1.5s ease-in-out; /* Tranzitie lina intre imagini */
+    z-index: 1;
+}
+
+/* Clasa care face slide-ul vizibil */
+.hero-slide.active-slide {
+    opacity: 1;
+}
+
+/* Stratul de overlay semi-transparent rămâne peste slide-uri și sub text */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Strat semi-transparent negru */
+    z-index: 2; /* Deasupra slide-urilor */
+}
+
+.hero-content {
+    z-index: 10; /* Asigură că textul rămâne deasupra overlay-ului */
+    max-width: 800px;
+    padding-top: 50px; 
+}
+
+.hero-content h1 {
+    font-size: 2.5em;
+    margin: 0 0 10px 0;
+    color: var(--color-light-text);
+    text-transform: uppercase;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    color: var(--color-accent); /* Text galben pentru accent */
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Swiper/Dots Indicator (Puncte din partea de jos a bannerului) */
+.hero-dots {
+    position: absolute;
+    bottom: 20px;
+    z-index: 10;
+    display: flex;
+    gap: 8px;
+}
+.hero-dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.hero-dot.active-dot {
+    background-color: var(--color-light-text);
+}
 
         
         /* ==================================================== */
@@ -819,6 +847,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </body>
 </html>
+
 
 
 
