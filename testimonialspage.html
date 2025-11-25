@@ -3,279 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Storm Machine - Client Testimonials</title>
-    
-    <link rel="stylesheet" href="style.css"> 
-    
+    <title>Storm Machine Entertainment - Testimonials</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
     
     <style>
         /* ==================================================== */
-        /* STILURI GENERALE ȘI REZOLVARE BUG-URI */
+        /* 0. ROOT VARIABLES & GLOBAL STYLES */
         /* ==================================================== */
+        :root {
+            --color-primary: #000;
+            --color-highlight-blue: #00bce4; /* Albastrul deschis (Cyan) din titlurile testimonialelor */
+            --color-dark-blue-text: #003366; /* Albastrul inchis pentru Get a Quote */
+            --color-accent: #FFCC00; 
+            --color-dark-text: #333;
+            --color-light-text: #fff;
+            --color-footer-bg: #1c1c1c;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
-            padding-top: 60px; /* Spațiu pentru bara fixă */
-            background-color: #fff;
-            color: #333;
             line-height: 1.6;
+            color: var(--color-dark-text);
+            padding-top: 60px; 
             overflow-x: hidden;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
+        a { text-decoration: none; color: inherit; }
+
         /* ==================================================== */
-        /* 2. HEADER & NAVIGATION (FIXED BAR) - Consistent */
+        /* 1. HEADER & NAVIGATION (Identic cu Index/Chairs) */
         /* ==================================================== */
         .header {
-            background-color: #000;
-            color: #fff;
+            background-color: var(--color-primary);
+            color: var(--color-light-text);
             padding: 5px 0;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         .navbar {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: flex; 
             justify-content: space-between; 
-            align-items: center;
-            padding: 0 20px;
-            text-transform: uppercase;
+            align-items: center; 
+            padding: 0 20px; 
+            text-transform: uppercase; 
+            font-size: 13px; 
+            box-sizing: border-box;
         }
 
-        .nav-links {
-            display: flex;
-            align-items: center;
+        .logo { 
+            display: flex; 
+            align-items: center; 
+            order: 2; 
+            flex-shrink: 0; 
+            margin: 0 10px; 
         }
-
-        .nav-links.left-links, .nav-links.right-links {
-            flex-basis: 45%; 
-        }
-
-        .nav-links.left-links {
-            justify-content: flex-start;
-        }
-
-        .nav-links.right-links {
-            justify-content: flex-end;
-        }
-
-        .nav-links a {
-            padding: 0 8px;
-            font-size: 13px;
-            font-weight: bold;
-            transition: color 0.3s;
-            white-space: nowrap; 
-        }
-
-        .nav-links a:hover {
-            color: #ffcc00;
-        }
-
-        .logo {
-            margin: 0 10px;
-            display: flex;
-            align-items: center;
-            flex-shrink: 0;
-        }
-
-        .logo img {
-            height: 30px; 
-            margin-right: 5px;
-        }
-        
-        /* ---------------------------------------------------- */
-        /* STILURI SPECIFICE PAGINII DE MĂRTURII (TESTIMONIALS) */
-        /* ---------------------------------------------------- */
-        .hero-section {
-            background-color: #444;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        .hero-section h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-        
-        .testimonials-grid {
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grile responsive */
-            gap: 30px;
-        }
-        
-        .testimonial-card {
-            background-color: #f0f0f0;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        
-        .testimonial-card p {
-            font-style: italic;
-            margin-bottom: 20px;
-            font-size: 1.1em;
-            color: #555;
-        }
-        
-        .client-info {
-            border-top: 1px solid #ddd;
-            padding-top: 15px;
-        }
-        
-        .client-info strong {
-            display: block;
-            font-weight: bold;
-            color: #000;
-        }
-        
-        .rating {
-            color: #ffcc00; /* Stelele vor fi galbene */
-            margin-bottom: 10px;
-        }
-        
-        /* FOOTER SIMPLU */
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 30px 20px;
-            text-align: center;
-            font-size: 14px;
-        }
-        footer a { color: #ffcc00; text-decoration: none; }
-        
-    </style>
-</head>
-<body>
-
-<header class="header">
-        <div class="navbar">
-            <div class="nav-links left-links">
-                <a href="marquees.html">MARQUEES</a>
-                <a href="discos.html">DISCOS</a>
-                <a href="jaysbars.html">JAY'S BARS</a>
-                <a href="equipment.html">EQUIPMENT HIRE</a>
-                <a href="chairs.html">CHAIRS</a> 
-            </div>
-            
-            <div class="logo">
-                <a href="index.html"><img src="images/stormmachine-logo.png" alt="Storm Machine Logo" style="height: 30px;"></a>
-                <span>stormmachine</span>
-            </div>
-            
-            <div class="nav-links right-links">
-                <a href="login.html">LOGIN</a> 
-                <a href="register.html">REGISTER</a>
-                <a href="gallery.html">GALLERY</a>
-                <a href="information.html">INFORMATION</a>
-                <a href="testimonialspage.html">TESTIMONIALS</a> 
-                <a href="contact.html">CONTACT US</a> <a href="#"><i class="fas fa-info-circle"></i></a>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <section class="hero-section">
-            <h1>What Our Clients Say</h1>
-            <p>Read the wonderful reviews from our satisfied customers across all services: Marquees, Discos, and Bar Hire.</p>
-        </section>
-
-        <section class="testimonials-grid">
-            
-            <div class="testimonial-card">
-                <div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p>"Absolutely fantastic service! The marquee looked stunning, and the team was incredibly efficient with the setup and takedown. Highly recommended for any event."</p>
-                </div>
-                <div class="client-info">
-                    <strong>— Sarah L.</strong>
-                    <span>Wedding Marquee Hire</span>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p>"The Platinum Ultimate Disco Package turned our party into a massive success. Great sound, incredible lighting, and a DJ who knew exactly what to play. Thank you!"</p>
-                </div>
-                <div class="client-info">
-                    <strong>— John P.</strong>
-                    <span>Corporate Party Disco</span>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <p>"Jay's Bars provided a sleek, professional service for our festival. Excellent stock, friendly staff, and great value for money."</p>
-                </div>
-                <div class="client-info">
-                    <strong>— Festival Organiser</strong>
-                    <span>Jay's Bars Hire</span>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p>"We hired the White Folding Chairs and tables. Everything arrived on time, clean, and in perfect condition. Made planning so much easier."</p>
-                </div>
-                <div class="client-info">
-                    <strong>— Emily R.</strong>
-                    <span>Equipment Rental</span>
-                </div>
-            </div>
-
-        </section>
-    </main>
-    
-    <footer>
-        <p>Give us a call on <strong>01694 751380</strong></p>
-        <p>Send us an email at <a href="mailto:info@stormmachine.co.uk">info@stormmachine.co.uk</a></p>
-        <p>Or fill out our <a href="contact.html">enquiry form</a> below</p>
-
-        <hr style="border-color: rgba(255,255,255,0.2); margin: 15px auto;">
-
-        <p>© STORM MACHINE 2025</p>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.getElementById('menuToggle');
-            const mobileMenu = document.getElementById('mobileMenu');
-    
-            if (menuToggle && mobileMenu) {
-                menuToggle.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('mobile-active');
-                    
-                    const icon = this.querySelector('i');
-                    if (mobileMenu.classList.contains('mobile-active')) {
-                        icon.classList.remove('fa-bars');
-                        icon.classList.add('fa-times');
-                    } else {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
-                });
-            }
-        });
-    </script>
-</body>
-</html>
+        .logo
