@@ -3,355 +3,398 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Storm Machine Entertainment - Discos & DJ Hire</title>
+    <title>Storm Machine Entertainment - Discos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
     
     <style>
         /* ==================================================== */
-        /* 1. BASE & GENERAL CSS (Consistent) */
+        /* 0. ROOT VARIABLES & GLOBAL STYLES */
         /* ==================================================== */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            padding-top: 60px; /* Space for fixed header */
-            background-color: #f7f7f7; 
-            color: #333;
-            line-height: 1.6;
+        :root {
+            --color-primary: #000;
+            --color-blue-text: #003366; /* Albastrul închis pentru titluri/cta */
+            --color-accent: #FFCC00; 
+            --color-dark-text: #333;
+            --color-light-text: #fff;
+            --color-footer-bg: #1c1c1c;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--color-dark-text);
+            padding-top: 60px; 
+            overflow-x: hidden;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
+        a { text-decoration: none; color: inherit; }
+
         /* ==================================================== */
-        /* 2. HEADER & NAVIGATION (FIXED BAR) - Consistent */
+        /* 1. HEADER & NAVIGATION (Cu Logo Centrat) */
         /* ==================================================== */
         .header {
-            background-color: #000;
-            color: #fff;
+            background-color: var(--color-primary);
+            color: var(--color-light-text);
             padding: 5px 0;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         .navbar {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: flex; 
             justify-content: space-between; 
-            align-items: center;
-            padding: 0 20px;
-            text-transform: uppercase;
+            align-items: center; 
+            padding: 0 20px; 
+            text-transform: uppercase; 
+            font-size: 13px; 
+            box-sizing: border-box;
+            position: relative;
         }
 
-        .nav-links {
-            display: flex;
-            align-items: center;
+        .logo { 
+            /* Poziționare absolută și transformare pentru a centra pe orizontală */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            
+            display: flex; 
+            align-items: center; 
+            flex-shrink: 0; 
+            margin: 0; 
+            z-index: 1010; 
+        }
+        
+        .logo img { 
+            height: 40px; 
+            margin-right: 5px; 
+            border-radius: 50%;
+        }
+        .logo span {
+            color: var(--color-light-text);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: none; 
         }
 
-        .nav-links.left-links, .nav-links.right-links {
-            flex-basis: 45%; 
-        }
-
-        .nav-links.left-links {
-            justify-content: flex-start;
-        }
-
-        .nav-links.right-links {
-            justify-content: flex-end;
-        }
+        .nav-links { display: flex; gap: 15px; align-items: center; flex-wrap: nowrap; }
+        .nav-links-left { order: 1; margin-right: auto; } 
+        .nav-links-right { order: 3; margin-left: auto; } 
 
         .nav-links a {
-            padding: 0 8px;
-            font-size: 13px;
-            font-weight: bold;
-            transition: color 0.3s;
+            color: var(--color-light-text); 
             white-space: nowrap; 
+            padding: 10px 0; 
+            transition: color 0.3s; 
         }
+        .nav-links a:hover { color: var(--color-accent); }
+        
+        .menu-toggle, .nav-links-mobile { display: none; }
 
-        .nav-links a:hover {
-            color: #ffcc00;
-        }
-
-        .logo {
-            margin: 0 10px;
+        /* ==================================================== */
+        /* 2. DISCOS HERO SECTION */
+        /* ==================================================== */
+        .page-hero {
+            position: relative;
+            height: 400px;
+            /* Imaginea de fundal (un DJ set-up sau ring de dans iluminat) */
+            background-image: url('images/discos-hero-bg.jpg'); 
+            background-size: cover;
+            background-position: center;
             display: flex;
-            align-items: center;
-            flex-shrink: 0;
+            align-items: flex-end; 
+            justify-content: center;
+            text-align: center;
+            padding-bottom: 40px;
+        }
+        
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            /* Overlay întunecat pentru contrast cu textul alb */
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
         }
 
-        .logo img {
-            height: 30px; 
-            margin-right: 5px;
+        .page-hero h1 {
+            position: relative;
+            z-index: 10;
+            color: #fff;
+            font-size: 3.5em;
+            font-weight: 700;
+            text-transform: capitalize;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* ==================================================== */
+        /* 3. INTRO TEXT & OFFERING SECTION */
+        /* ==================================================== */
+        .intro-text {
+            text-align: center;
+            padding: 60px 20px 40px 20px;
+        }
+
+        .intro-text h2 {
+            color: var(--color-blue-text);
+            font-size: 1.4em;
+            font-weight: 700;
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+        }
+
+        .intro-text p {
+            color: #666;
+            font-size: 1em;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* --- THREE COLUMNS OFFERING --- */
+        .offering-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            padding: 20px 0 80px 0;
+            text-align: center;
+        }
+
+        .offering-item {
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .offering-item i {
+            font-size: 3em;
+            color: var(--color-accent); 
+            margin-bottom: 15px;
+        }
+
+        .offering-item h4 {
+            color: var(--color-blue-text);
+            font-size: 1.1em;
+            font-weight: 900; 
+            text-transform: uppercase;
+            margin: 0 0 10px 0;
+        }
+
+        .offering-item p {
+            font-size: 0.9em;
+            color: #444;
+            line-height: 1.4;
+            margin: 0;
         }
         
         /* ==================================================== */
-        /* 3. FOOTER - Consistent */
+        /* 4. GET A QUOTE (Consistent) */
+        /* ==================================================== */
+        .get-a-quote-bottom {
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            background-color: #f7f7f7; /* Fundal ușor gri */
+        }
+        
+        .get-a-quote-bottom h3 {
+            color: var(--color-blue-text);
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        .get-a-quote-bottom p {
+            color: var(--color-blue-text);
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+        .get-a-quote-bottom a {
+            font-weight: 700;
+            color: var(--color-blue-text);
+        }
+
+        /* ==================================================== */
+        /* 5. FOOTER (Identic) */
         /* ==================================================== */
         .footer {
-            background-color: #333;
-            color: #fff;
-            padding: 30px 20px;
-            text-align: center;
+            background-color: var(--color-footer-bg);
+            color: #ccc;
+            padding: 40px 0 10px 0;
+            font-size: 0.9em;
         }
+        .footer-main { display: flex; justify-content: space-between; flex-wrap: wrap; }
+        .footer-logo-section { flex: 1 1 300px; margin-bottom: 20px; }
+        .footer-logo-section img { height: 40px; margin-bottom: 10px; }
+        .contact-info, .footer-nav { flex: 1 1 200px; margin-bottom: 20px; }
+        .contact-info a, .footer-nav a { color: #ccc; transition: color 0.3s; }
+        .contact-info a:hover, .footer-nav a:hover { color: var(--color-accent); }
+        .footer-socials { display: flex; gap: 15px; margin-top: 10px; }
+        .footer-bottom { border-top: 1px solid #333; padding-top: 10px; text-align: center; margin-top: 20px; }
 
-        .footer-content {
-             max-width: 1200px;
-             margin: 0 auto;
-             display: flex;
-             justify-content: space-around;
-             align-items: center;
-             flex-wrap: wrap; 
-        }
-
-        .footer-info, .footer-links, .footer-social {
-            margin: 10px 20px;
-        }
-
-        .footer-links a {
-            color: #fff;
-            margin: 0 15px;
-            transition: color 0.3s;
-            display: inline-block;
-        }
-
-        .footer-links a:hover {
-            color: #ffcc00;
-        }
-
-        .footer-social a {
-            font-size: 1.5em;
-            margin: 0 10px;
-            color: #fff;
-            transition: color 0.3s;
-        }
-
-        .footer-social a:hover {
-            color: #ffcc00;
-        }
-        
         /* ==================================================== */
-        /* 4. DISCOS PAGE SPECIFIC CSS (Product Grid) */
+        /* 6. RESPONSIVE */
         /* ==================================================== */
-        
-        .discos-hero {
-            position: relative;
-            background-color: #000; 
-            padding: 60px 20px;
-            text-align: center;
-            color: #fff;
-            border-bottom: 5px solid #0d83d1;
-        }
+        @media (max-width: 900px) {
+            .nav-links-left, .nav-links-right { display: none !important; }
+            .menu-toggle { display: block; font-size: 24px; cursor: pointer; color: #fff; order: 3; }
+            .nav-links-mobile { 
+                display: none; flex-direction: column; width: 100%; position: absolute; 
+                top: 50px; left: 0; background-color: #111; z-index: 999;
+            }
+            .nav-links-mobile.mobile-active { display: flex; }
+            .logo {
+                position: static; 
+                transform: none;
+                order: 2;
+                margin: 0 auto;
+            }
 
-        .discos-hero h1 {
-            font-size: 48px;
-            text-transform: uppercase;
-            margin: 0;
-            color: #ffcc00; /* Gold/Yellow accent */
+            .offering-grid {
+                grid-template-columns: 1fr; /* O singura coloana pe mobil */
+                gap: 20px;
+            }
+            
+            .footer-main { flex-direction: column; text-align: center; align-items: center; }
         }
-        
-        .discos-hero p {
-            max-width: 900px;
-            margin: 10px auto 25px;
-            font-size: 20px;
-        }
-
-        .product-grid-section {
-            padding: 50px 20px;
-            text-align: center;
-        }
-        
-        .product-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .product-card {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: left;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .product-content {
-            padding: 20px;
-        }
-        
-        .product-content h3 {
-            color: #333;
-            margin-top: 0;
-            font-size: 24px;
-        }
-        
-        .product-content p {
-            font-size: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .features-list {
-            list-style: none;
-            padding: 0;
-            margin-top: -10px;
-            margin-bottom: 20px;
-        }
-
-        .features-list li {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 5px;
-        }
-        
-        .features-list i {
-            color: #0d83d1; /* Blue accent for list items */
-            margin-right: 8px;
-        }
-
-        .cta-button {
-            display: block;
-            width: 100%;
-            padding: 12px 0;
-            background-color: #ffcc00;
-            color: #000;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-align: center;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-
-        .cta-button:hover {
-            background-color: #e0b300;
-        }
-
     </style>
 </head>
 <body>
 
-    <header class="header">
-        <div class="navbar">
-            <div class="nav-links left-links">
-                <a href="marquees.html">MARQUEES</a>
-                <a href="discos.html">DISCOS</a> <a href="jaysbars.html">JAY'S BARS</a>
-                <a href="equipment.html">EQUIPMENT HIRE</a>
-                <a href="chairs.html">CHAIRS</a> 
-            </div>
-            
-            <div class="logo">
-                <a href="index.html"><img src="images/stormmachine-logo.png" alt="Storm Machine Logo" style="height: 30px;"></a>
-                <span>stormmachine</span>
-            </div>
-            
-            <div class="nav-links right-links">
-                <a href="login.html">LOGIN</a> 
-                <a href="register.html">REGISTER</a>
-                <a href="gallery.html">GALLERY</a>
-                <a href="information.html">INFORMATION</a>
-                <a href="testimonialspage.html">TESTIMONIALS</a> 
-                <a href="contact.html">CONTACT US</a>
-                <a href="#"><i class="fas fa-info-circle"></i></a>
-            </div>
+<header class="header">
+    <div class="navbar">
+        <div class="nav-links nav-links-left">
+            <a href="marquees.html">MARQUEES</a>
+            <a href="discos.html">DISCOS</a>
+            <a href="jaysbars.html">JAY'S BARS</a>
+            <a href="equipment.html">EQUIPMENT HIRE</a>
         </div>
-    </header>
+        <div class="logo">
+            <a href="index.html"><img src="images/stormmachine-logo.png" alt="Storm Machine Logo"></a>
+            <a href="index.html"><img src="images/logo-secondary.png" alt="Secondary Logo"></a>
+            <span>STORM MACHINE</span>
+        </div>
+        <div class="nav-links nav-links-right">
+            <a href="gallery.html">GALLERY</a>
+            <a href="information.html">INFORMATION</a>
+            <a href="contact.html">CONTACT US</a>
+        </div>
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+    <div class="nav-links-mobile" id="mobileMenu">
+        <a href="marquees.html">MARQUEES</a>
+        <a href="discos.html">DISCOS</a>
+        <a href="jaysbars.html">JAY'S BARS</a>
+        <a href="equipment.html">EQUIPMENT HIRE</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="information.html">INFORMATION</a>
+        <a href="contact.html">CONTACT US</a>
+    </div>
+</header>
 
-    <section class="discos-hero">
-        <h1>Professional Discos & DJ Hire</h1>
-        <p>Your one-stop solution for high-energy entertainment. We bring the best sound systems, stunning lighting, and experienced DJs to your party.</p>
-        <a href="contact.html" class="cta-button" style="width: 250px; margin: 20px auto 0;">BOOK YOUR DJ NOW</a>
-    </section>
+<section class="page-hero">
+    <h1>Discos</h1>
+</section>
 
-    <section class="product-grid-section">
-        <h2>Our Disco Packages</h2>
+<section class="container">
+    <div class="intro-text">
+        <h2>Adăugați muzică și lumină evenimentului dumneavoastră cu serviciile noastre complete de DJ și Disco.</h2>
+        <p>Oferim pachete personalizate de sonorizare și iluminat pentru nunți, petreceri private și evenimente corporate. Echipamentul nostru modern asigură o atmosferă fantastică, adaptată perfect locației și temei evenimentului.
+        </p>
+    </div>
+
+    <div class="offering-grid">
         
-        <div class="product-grid">
-            
-            <div class="product-card">
-                <img src="images/dj-setup.jpg" alt="Professional DJ Setup">
-                <div class="product-content">
-                    <h3>Full Service DJ & Disco</h3>
-                    <p>Includes a professional DJ, comprehensive music library, custom playlists, and full sound/light setup for up to 200 guests.</p>
-                    <ul class="features-list">
-                        <li><i class="fas fa-music"></i> Experienced, vetted DJs</li>
-                        <li><i class="fas fa-music"></i> Pre-event consultation</li>
-                        <li><i class="fas fa-music"></i> Requests taken on the night</li>
-                    </ul>
-                    <a href="contact.html" class="cta-button">Check DJ Availability</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <img src="images/ring-dans.jpg" alt="Dancefloor Lighting">
-                <div class="product-content">
-                    <h3>Lighting & Effects Hire</h3>
-                    <p>Transform your venue with intelligent lighting, moving heads, color wash uplighting, and spectacular dance floor effects.</p>
-                    <ul class="features-list">
-                        <li><i class="fas fa-lightbulb"></i> LED Uplighting packages</li>
-                        <li><i class="fas fa-lightbulb"></i> Custom monograms (GOBO)</li>
-                        <li><i class="fas fa-lightbulb"></i> Smoke & Haze machines</li>
-                    </ul>
-                    <a href="contact.html" class="cta-button">Request Lighting Quote</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <img src="images/pachet-sunet.jpg" alt="PA Sound System">
-                <div class="product-content">
-                    <h3>Sound System Dry Hire</h3>
-                    <p>Rent high-powered PA systems, speakers, subwoofers, and mixers for events where you supply the entertainment.</p>
-                    <ul class="features-list">
-                        <li><i class="fas fa-volume-up"></i> Systems for 50 to 500 guests</li>
-                        <li><i class="fas fa-volume-up"></i> Microphones included</li>
-                        <li><i class="fas fa-volume-up"></i> Easy setup instructions</li>
-                    </ul>
-                    <a href="contact.html" class="cta-button">View Sound Equipment</a>
-                </div>
-            </div>
-            
+        <div class="offering-item">
+            <i class="fas fa-music"></i>
+            <h4>DJ Profesioniști</h4>
+            <p>DJ cu experiență, capabili să mixeze orice gen muzical, de la hituri clasice la cele mai noi melodii, asigurând un ring de dans plin toată noaptea.</p>
         </div>
-    </section>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-info">
-                <p><strong>CONTACT US</strong></p>
-                <p>CALL US: 0722 123 456</p>
+        <div class="offering-item">
+            <i class="fas fa-volume-up"></i>
+            <h4>Echipament Audio de Top</h4>
+            <p>Sisteme de sunet de înaltă fidelitate, calibrate pentru a oferi claritate și putere, indiferent de dimensiunea cortului sau a locației evenimentului.</p>
+        </div>
+
+        <div class="offering-item">
+            <i class="fas fa-lightbulb"></i>
+            <h4>Efecte de Iluminat Spectaculoase</h4>
+            <p>Iluminat inteligent, lumini dinamice, lasere și mașini de fum, toate sincronizate pentru a crea o ambianță perfectă de petrecere.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="get-a-quote-bottom">
+    <div class="container">
+        <h3>Solicitați o Cotație</h3>
+        <p>Completați <a href="contact.html">formularul nostru de contact</a>, sau sunați-ne la 01694 751380</p>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-main">
+            <div class="footer-logo-section">
+                <img src="images/stormmachine-footer-logo.png" alt="Storm Machine Footer Logo">
+                <p>Give us a call on 09999 751380</p>
+                <p>Send us an email at <a href="mailto:info@stormmachine.co.uk">info@stormmachine.co.uk</a></p>
+                <p>Or fill out our <a href="contact.html">enquiry form</a> below</p>
             </div>
-            <div class="footer-links">
-                <a href="marquees.html">MARQUEES</a>
-                <a href="discos.html">DISCOS</a>
-                <a href="jaysbars.html">JAY'S BARS</a>
-                <a href="equipment.html">EQUIPMENT HIRE</a>
-                <a href="information.html">INFORMATION</a>
+            <div class="contact-info">
+                <p>FOLLOW US</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
             </div>
-            <div class="footer-social">
-                <p>Follow us</p>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
+            <div class="footer-nav">
+                <p>QUICK LINKS</p>
+                <ul>
+                    <li><a href="marquees.html">Marquees</a></li>
+                    <li><a href="discos.html">Discos</a></li>
+                    <li><a href="jaysbars.html">Jay's Bars</a></li>
+                </ul>
             </div>
         </div>
-    </footer>
+        <div class="footer-bottom">
+            <p>&copy; STORM MACHINE 2025</p>
+            <p><a href="privacy.html">PRIVACY</a> | <a href="terms.html">TERMS</a></p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('mobile-active');
+                const icon = this.querySelector('i');
+                if (mobileMenu.classList.contains('mobile-active')) {
+                    icon.classList.remove('fa-bars'); icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+                }
+            });
+        }
+    });
+</script>
 
 </body>
 </html>
