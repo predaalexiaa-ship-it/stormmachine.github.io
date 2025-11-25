@@ -53,4 +53,431 @@
         }
 
         .navbar {
-            max-width: 1200px
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 0 20px; 
+            text-transform: uppercase; 
+            font-size: 13px; 
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .logo { 
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            
+            display: flex; 
+            align-items: center; 
+            flex-shrink: 0; 
+            margin: 0; 
+            z-index: 1010; 
+        }
+        
+        .logo img { 
+            height: 40px; 
+            margin-right: 5px; 
+            border-radius: 50%;
+        }
+        .logo span {
+            color: var(--color-light-text);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: none; 
+        }
+
+        .nav-links { display: flex; gap: 15px; align-items: center; flex-wrap: nowrap; }
+        .nav-links-left { order: 1; margin-right: auto; } 
+        .nav-links-right { order: 3; margin-left: auto; } 
+
+        .nav-links a {
+            color: var(--color-light-text); 
+            white-space: nowrap; 
+            padding: 10px 0; 
+            transition: color 0.3s; 
+        }
+        .nav-links a:hover { color: var(--color-accent); }
+        
+        .menu-toggle, .nav-links-mobile { display: none; }
+
+        /* ==================================================== */
+        /* 2. GALLERY HERO SECTION */
+        /* ==================================================== */
+        .page-hero {
+            position: relative;
+            height: 400px;
+            /* Placeholder background image for a stunning event photo */
+            background-image: url('images/gallery-hero-bg.jpg'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end; 
+            justify-content: center;
+            text-align: center;
+            padding-bottom: 40px;
+        }
+        
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            /* Dark overlay for contrast */
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+        }
+
+        .page-hero h1 {
+            position: relative;
+            z-index: 10;
+            color: #fff;
+            font-size: 3.5em;
+            font-weight: 700;
+            text-transform: capitalize;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* ==================================================== */
+        /* 3. GALLERY CONTENT */
+        /* ==================================================== */
+        .gallery-page {
+            padding: 60px 0;
+        }
+
+        .gallery-intro {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+
+        .gallery-intro h2 {
+            color: var(--color-blue-text);
+            font-size: 2.2em;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        .gallery-intro p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        /* --- IMAGE GRID --- */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+            gap: 20px;
+            padding-bottom: 60px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px; /* Fixed height for consistent grid */
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+            color: var(--color-light-text);
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover .item-overlay {
+            transform: translateY(0);
+        }
+
+        .item-overlay h4 {
+            margin: 0;
+            font-size: 1.1em;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .item-overlay p {
+            margin: 5px 0 0 0;
+            font-size: 0.85em;
+            color: #ccc;
+        }
+
+        /* ==================================================== */
+        /* 4. GET A QUOTE (Consistent) */
+        /* ==================================================== */
+        .get-a-quote-bottom {
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            background-color: #f7f7f7; 
+        }
+        
+        .get-a-quote-bottom h3 {
+            color: var(--color-blue-text);
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        .get-a-quote-bottom p {
+            color: var(--color-blue-text);
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+        .get-a-quote-bottom a {
+            font-weight: 700;
+            color: var(--color-blue-text);
+        }
+
+        /* ==================================================== */
+        /* 5. FOOTER (Identical) */
+        /* ==================================================== */
+        .footer {
+            background-color: var(--color-footer-bg);
+            color: #ccc;
+            padding: 40px 0 10px 0;
+            font-size: 0.9em;
+        }
+        .footer-main { display: flex; justify-content: space-between; flex-wrap: wrap; }
+        .footer-logo-section { flex: 1 1 300px; margin-bottom: 20px; }
+        .footer-logo-section img { height: 40px; margin-bottom: 10px; }
+        .contact-info, .footer-nav { flex: 1 1 200px; margin-bottom: 20px; }
+        .contact-info a, .footer-nav a { color: #ccc; transition: color 0.3s; }
+        .contact-info a:hover, .footer-nav a:hover { color: var(--color-accent); }
+        .footer-socials { display: flex; gap: 15px; margin-top: 10px; }
+        .footer-bottom { border-top: 1px solid #333; padding-top: 10px; text-align: center; margin-top: 20px; }
+
+        /* ==================================================== */
+        /* 6. RESPONSIVE */
+        /* ==================================================== */
+        @media (max-width: 900px) {
+            .nav-links-left, .nav-links-right { display: none !important; }
+            .menu-toggle { display: block; font-size: 24px; cursor: pointer; color: #fff; order: 3; }
+            .nav-links-mobile { 
+                display: none; flex-direction: column; width: 100%; position: absolute; 
+                top: 50px; left: 0; background-color: #111; z-index: 999;
+            }
+            .nav-links-mobile.mobile-active { display: flex; }
+            .logo {
+                position: static; 
+                transform: none;
+                order: 2;
+                margin: 0 auto;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr; /* Single column on mobile */
+                gap: 15px;
+            }
+            
+            .footer-main { flex-direction: column; text-align: center; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="navbar">
+        <div class="nav-links nav-links-left">
+            <a href="marquees.html">MARQUEES</a>
+            <a href="discos.html">DISCOS</a>
+            <a href="jaysbars.html">JAY'S BARS</a>
+            <a href="equipment.html">EQUIPMENT HIRE</a>
+        </div>
+        <div class="logo">
+            <a href="index.html"><img src="images/stormmachine-logo.png" alt="Storm Machine Logo"></a>
+            <a href="index.html"><img src="images/logo-secondary.png" alt="Secondary Logo"></a>
+            <span>STORM MACHINE</span>
+        </div>
+        <div class="nav-links nav-links-right">
+            <a href="gallery.html">GALLERY</a>
+            <a href="information.html">INFORMATION</a>
+            <a href="contact.html">CONTACT US</a>
+        </div>
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+    <div class="nav-links-mobile" id="mobileMenu">
+        <a href="marquees.html">MARQUEES</a>
+        <a href="discos.html">DISCOS</a>
+        <a href="jaysbars.html">JAY'S BARS</a>
+        <a href="equipment.html">EQUIPMENT HIRE</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="information.html">INFORMATION</a>
+        <a href="contact.html">CONTACT US</a>
+    </div>
+</header>
+
+<section class="page-hero">
+    <h1>Our Event Gallery</h1>
+</section>
+
+<section class="gallery-page">
+    <div class="container">
+        <div class="gallery-intro">
+            <h2>A Glimpse into Unforgettable Events</h2>
+            <p>Explore our collection of stunning event photographs, showcasing the quality and versatility of our marquees, entertainment, and equipment. Get inspired for your next celebration!</p>
+        </div>
+
+        <div class="image-grid">
+            
+            <div class="gallery-item">
+                <img src="images/gallery-wedding-marquee.jpg" alt="Wedding Marquee Setup">
+                <div class="item-overlay">
+                    <h4>Wedding Marquee</h4>
+                    <p>Elegant setup for a dream wedding reception.</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/gallery-disco-party.jpg" alt="Disco Party Lighting">
+                <div class="item-overlay">
+                    <h4>Disco Party</h4>
+                    <p>Vibrant lighting and dance floor action.</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/gallery-jaysbar.jpg" alt="Jay's Bar at Event">
+                <div class="item-overlay">
+                    <h4>Mobile Bar Service</h4>
+                    <p>Professional bar setup serving guests.</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/gallery-corporate-event.jpg" alt="Corporate Event Setup">
+                <div class="item-overlay">
+                    <h4>Corporate Function</h4>
+                    <p>Sophisticated setting for business gatherings.</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/gallery-chairs-tables.jpg" alt="Chairs and Tables Setup">
+                <div class="item-overlay">
+                    <h4>Dining & Seating</h4>
+                    <p>Variety of chairs and elegant table settings.</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/gallery-outdoor-view.jpg" alt="Marquee Exterior View">
+                <div class="item-overlay">
+                    <h4>Exterior Views</h4>
+                    <p>Marquees beautifully integrated with landscapes.</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/gallery-lighting-effects.jpg" alt="Special Lighting Effects">
+                <div class="item-overlay">
+                    <h4>Special Lighting</h4>
+                    <p>Ambient and decorative lighting solutions.</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/gallery-band-stage.jpg" alt="Band on Stage">
+                <div class="item-overlay">
+                    <h4>Staging & Performance</h4>
+                    <p>Live band performance on our modular stage.</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/gallery-winter-marquee.jpg" alt="Winter Marquee Event">
+                <div class="item-overlay">
+                    <h4>Winter Events</h4>
+                    <p>Heated marquees for cozy celebrations.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="get-a-quote-bottom">
+    <div class="container">
+        <h3>Inspired by Our Work?</h3>
+        <p>Let's make your vision a reality. <a href="contact.html">Contact us today</a> for a personalized quote!</p>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-main">
+            <div class="footer-logo-section">
+                <img src="images/stormmachine-footer-logo.png" alt="Storm Machine Footer Logo">
+                <p>Give us a call on 09999 751380</p>
+                <p>Send us an email at <a href="mailto:info@stormmachine.co.uk">info@stormmachine.co.uk</a></p>
+                <p>Or fill out our <a href="contact.html">enquiry form</a> below</p>
+            </div>
+            <div class="contact-info">
+                <p>FOLLOW US</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <p>QUICK LINKS</p>
+                <ul>
+                    <li><a href="marquees.html">Marquees</a></li>
+                    <li><a href="discos.html">Discos</a></li>
+                    <li><a href="jaysbars.html">Jay's Bars</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; STORM MACHINE 2025</p>
+            <p><a href="privacy.html">PRIVACY</a> | <a href="terms.html">TERMS</a></p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('mobile-active');
+                const icon = this.querySelector('i');
+                if (mobileMenu.classList.contains('mobile-active')) {
+                    icon.classList.remove('fa-bars'); icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
