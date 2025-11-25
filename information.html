@@ -3,366 +3,421 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Storm Machine Entertainment - Information & FAQ</title>
+    <title>Storm Machine Entertainment - Information</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
     
     <style>
         /* ==================================================== */
-        /* 1. BASE & GENERAL CSS (Consistent) */
+        /* 0. ROOT VARIABLES & GLOBAL STYLES */
         /* ==================================================== */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            padding-top: 60px; /* Space for fixed header */
-            background-color: #f7f7f7; 
-            color: #333;
-            line-height: 1.6;
+        :root {
+            --color-primary: #000;
+            --color-blue-text: #003366; /* Dark blue for titles/cta */
+            --color-accent: #FFCC00; 
+            --color-dark-text: #333;
+            --color-light-text: #fff;
+            --color-footer-bg: #1c1c1c;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--color-dark-text);
+            padding-top: 60px; 
+            overflow-x: hidden;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
+        a { text-decoration: none; color: inherit; }
+
         /* ==================================================== */
-        /* 2. HEADER & NAVIGATION (FIXED BAR) - Consistent */
+        /* 1. HEADER & NAVIGATION (With Centered Logo) */
         /* ==================================================== */
         .header {
-            background-color: #000;
-            color: #fff;
+            background-color: var(--color-primary);
+            color: var(--color-light-text);
             padding: 5px 0;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         .navbar {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: flex; 
             justify-content: space-between; 
-            align-items: center;
-            padding: 0 20px;
-            text-transform: uppercase;
+            align-items: center; 
+            padding: 0 20px; 
+            text-transform: uppercase; 
+            font-size: 13px; 
+            box-sizing: border-box;
+            position: relative;
         }
 
-        .nav-links {
-            display: flex;
-            align-items: center;
+        .logo { 
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            
+            display: flex; 
+            align-items: center; 
+            flex-shrink: 0; 
+            margin: 0; 
+            z-index: 1010; 
+        }
+        
+        .logo img { 
+            height: 40px; 
+            margin-right: 5px; 
+            border-radius: 50%;
+        }
+        .logo span {
+            color: var(--color-light-text);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: none; 
         }
 
-        .nav-links.left-links, .nav-links.right-links {
-            flex-basis: 45%; 
-        }
-
-        .nav-links.left-links {
-            justify-content: flex-start;
-        }
-
-        .nav-links.right-links {
-            justify-content: flex-end;
-        }
+        .nav-links { display: flex; gap: 15px; align-items: center; flex-wrap: nowrap; }
+        .nav-links-left { order: 1; margin-right: auto; } 
+        .nav-links-right { order: 3; margin-left: auto; } 
 
         .nav-links a {
-            padding: 0 8px;
-            font-size: 13px;
-            font-weight: bold;
-            transition: color 0.3s;
+            color: var(--color-light-text); 
             white-space: nowrap; 
+            padding: 10px 0; 
+            transition: color 0.3s; 
         }
+        .nav-links a:hover { color: var(--color-accent); }
+        
+        .menu-toggle, .nav-links-mobile { display: none; }
 
-        .nav-links a:hover {
-            color: #ffcc00;
-        }
-
-        .logo {
-            margin: 0 10px;
+        /* ==================================================== */
+        /* 2. INFORMATION HERO SECTION */
+        /* ==================================================== */
+        .page-hero {
+            position: relative;
+            height: 400px;
+            /* Placeholder background image for a professional/team setting */
+            background-image: url('images/info-hero-bg.jpg'); 
+            background-size: cover;
+            background-position: center;
             display: flex;
-            align-items: center;
-            flex-shrink: 0;
-        }
-
-        .logo img {
-            height: 30px; 
-            margin-right: 5px;
+            align-items: flex-end; 
+            justify-content: center;
+            text-align: center;
+            padding-bottom: 40px;
         }
         
-        /* ==================================================== */
-        /* 3. FOOTER - Consistent */
-        /* ==================================================== */
-        .footer {
-            background-color: #333;
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            /* Dark overlay for contrast */
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+        }
+
+        .page-hero h1 {
+            position: relative;
+            z-index: 10;
             color: #fff;
-            padding: 30px 20px;
+            font-size: 3.5em;
+            font-weight: 700;
+            text-transform: capitalize;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* ==================================================== */
+        /* 3. CORE CONTENT SECTIONS */
+        /* ==================================================== */
+        .content-section {
+            padding: 60px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .content-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-header h2 {
+            color: var(--color-blue-text);
+            font-size: 2.2em;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+        
+        /* --- TWO COLUMN LAYOUT --- */
+        .two-column-layout {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            margin-top: 30px;
+        }
+        
+        .col-text, .col-image {
+            flex: 1;
+        }
+
+        .col-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .col-text p {
+            margin-bottom: 15px;
+            color: #444;
+        }
+        
+        /* Alternate image/text order */
+        .two-column-layout.reverse {
+            flex-direction: row-reverse;
+        }
+
+        /* --- KEY FACTS GRID --- */
+        .key-facts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 30px;
             text-align: center;
         }
-
-        .footer-content {
-             max-width: 1200px;
-             margin: 0 auto;
-             display: flex;
-             justify-content: space-around;
-             align-items: center;
-             flex-wrap: wrap; 
-        }
-
-        .footer-info, .footer-links, .footer-social {
-            margin: 10px 20px;
-        }
-
-        .footer-links a {
-            color: #fff;
-            margin: 0 15px;
-            transition: color 0.3s;
-            display: inline-block;
-        }
-
-        .footer-links a:hover {
-            color: #ffcc00;
-        }
-
-        .footer-social a {
-            font-size: 1.5em;
-            margin: 0 10px;
-            color: #fff;
-            transition: color 0.3s;
-        }
-
-        .footer-social a:hover {
-            color: #ffcc00;
-        }
         
+        .fact-item {
+            padding: 20px;
+            background-color: #f7f7f7;
+            border-radius: 5px;
+        }
+
+        .fact-item i {
+            font-size: 2.5em;
+            color: var(--color-accent);
+            margin-bottom: 10px;
+        }
+
+        .fact-item h4 {
+            color: var(--color-blue-text);
+            font-size: 1.1em;
+            font-weight: 700;
+            margin: 0 0 5px 0;
+        }
+
         /* ==================================================== */
-        /* 4. INFORMATION PAGE SPECIFIC CSS (FAQ Accordion) */
+        /* 4. GET A QUOTE (Consistent) */
         /* ==================================================== */
-        
-        .info-hero {
-            position: relative;
-            background-color: #0d83d1; /* Blue theme */
+        .get-a-quote-bottom {
             padding: 40px 20px;
             text-align: center;
-            color: #fff;
-        }
-
-        .info-hero h1 {
-            font-size: 40px;
-            text-transform: uppercase;
-            margin: 0;
+            margin-bottom: 40px;
+            background-color: #f7f7f7; 
         }
         
-        .info-hero p {
-            max-width: 800px;
-            margin: 10px auto 0;
-            font-size: 18px;
+        .get-a-quote-bottom h3 {
+            color: var(--color-blue-text);
+            font-size: 2em;
+            margin-bottom: 15px;
         }
-        
-        .info-section {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .accordion {
-            background-color: #fff;
-            color: #444;
-            cursor: pointer;
-            padding: 18px;
-            width: 100%;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 18px;
-            transition: 0.4s;
-            border-bottom: 1px solid #ddd;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: bold;
-        }
-
-        .accordion:hover {
-            background-color: #eee;
-        }
-
-        .accordion i {
+        .get-a-quote-bottom p {
+            color: var(--color-blue-text);
             font-size: 1.2em;
-            transition: transform 0.3s;
+            font-weight: 500;
+        }
+        .get-a-quote-bottom a {
+            font-weight: 700;
+            color: var(--color-blue-text);
         }
 
-        .panel {
-            padding: 0 18px;
-            background-color: white;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            border-bottom: 1px solid #ddd;
+        /* ==================================================== */
+        /* 5. FOOTER (Identical) */
+        /* ==================================================== */
+        .footer {
+            background-color: var(--color-footer-bg);
+            color: #ccc;
+            padding: 40px 0 10px 0;
+            font-size: 0.9em;
         }
+        .footer-main { display: flex; justify-content: space-between; flex-wrap: wrap; }
+        .footer-logo-section { flex: 1 1 300px; margin-bottom: 20px; }
+        .footer-logo-section img { height: 40px; margin-bottom: 10px; }
+        .contact-info, .footer-nav { flex: 1 1 200px; margin-bottom: 20px; }
+        .contact-info a, .footer-nav a { color: #ccc; transition: color 0.3s; }
+        .contact-info a:hover, .footer-nav a:hover { color: var(--color-accent); }
+        .footer-socials { display: flex; gap: 15px; margin-top: 10px; }
+        .footer-bottom { border-top: 1px solid #333; padding-top: 10px; text-align: center; margin-top: 20px; }
 
-        .panel p {
-            padding: 15px 0;
-        }
-        
-        .accordion.active {
-            background-color: #0d83d1;
-            color: white;
-        }
+        /* ==================================================== */
+        /* 6. RESPONSIVE */
+        /* ==================================================== */
+        @media (max-width: 900px) {
+            .nav-links-left, .nav-links-right { display: none !important; }
+            .menu-toggle { display: block; font-size: 24px; cursor: pointer; color: #fff; order: 3; }
+            .nav-links-mobile { 
+                display: none; flex-direction: column; width: 100%; position: absolute; 
+                top: 50px; left: 0; background-color: #111; z-index: 999;
+            }
+            .nav-links-mobile.mobile-active { display: flex; }
+            .logo {
+                position: static; 
+                transform: none;
+                order: 2;
+                margin: 0 auto;
+            }
 
-        .accordion.active i {
-            transform: rotate(180deg);
+            .two-column-layout, .two-column-layout.reverse {
+                flex-direction: column; 
+            }
+            
+            .key-facts-grid {
+                grid-template-columns: 1fr; /* Single column on mobile */
+                gap: 20px;
+            }
+            
+            .footer-main { flex-direction: column; text-align: center; align-items: center; }
         }
-
-        /* Specific section for T&C */
-        .terms-section {
-            margin-top: 50px;
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .terms-section h2 {
-            border-bottom: 2px solid #ffcc00;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
     </style>
 </head>
 <body>
 
-    <header class="header">
-        <div class="navbar">
-            <div class="nav-links left-links">
-                <a href="marquees.html">MARQUEES</a>
-                <a href="discos.html">DISCOS</a>
-                <a href="jaysbars.html">JAY'S BARS</a>
-                <a href="equipment.html">EQUIPMENT HIRE</a>
-                <a href="chairs.html">CHAIRS</a> 
+<header class="header">
+    <div class="navbar">
+        <div class="nav-links nav-links-left">
+            <a href="marquees.html">MARQUEES</a>
+            <a href="discos.html">DISCOS</a>
+            <a href="jaysbars.html">JAY'S BARS</a>
+            <a href="equipment.html">EQUIPMENT HIRE</a>
+        </div>
+        <div class="logo">
+            <a href="index.html"><img src="images/stormmachine-logo.png" alt="Storm Machine Logo"></a>
+            <a href="index.html"><img src="images/logo-secondary.png" alt="Secondary Logo"></a>
+            <span>STORM MACHINE</span>
+        </div>
+        <div class="nav-links nav-links-right">
+            <a href="gallery.html">GALLERY</a>
+            <a href="information.html">INFORMATION</a>
+            <a href="contact.html">CONTACT US</a>
+        </div>
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+    <div class="nav-links-mobile" id="mobileMenu">
+        <a href="marquees.html">MARQUEES</a>
+        <a href="discos.html">DISCOS</a>
+        <a href="jaysbars.html">JAY'S BARS</a>
+        <a href="equipment.html">EQUIPMENT HIRE</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="information.html">INFORMATION</a>
+        <a href="contact.html">CONTACT US</a>
+    </div>
+</header>
+
+<section class="page-hero">
+    <h1>About Storm Machine</h1>
+</section>
+
+<section class="content-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our History & Commitment</h2>
+        </div>
+        <div class="two-column-layout">
+            <div class="col-text">
+                <p><strong>Storm Machine Entertainment</strong> started with a simple goal: to provide seamless, all-in-one event solutions without compromising on quality or service. Over the years, we have grown from a small marquee provider to a leading event management company offering everything from **luxury marquees and professional bars to sound systems and specialized equipment.**</p>
+                <p>We pride ourselves on our meticulous planning and attention to detail. Every member of our team is dedicated to ensuring your event runs perfectly, allowing you to relax and enjoy the occasion.</p>
             </div>
-            
-            <div class="logo">
-                <a href="index.html"><img src="images/stormmachine-logo.png" alt="Storm Machine Logo" style="height: 30px;"></a>
-                <span>stormmachine</span>
-            </div>
-            
-            <div class="nav-links right-links">
-                <a href="login.html">LOGIN</a> 
-                <a href="register.html">REGISTER</a>
-                <a href="gallery.html">GALLERY</a>
-                <a href="information.html">INFORMATION</a> <a href="testimonialspage.html">TESTIMONIALS</a> 
-                <a href="contact.html">CONTACT US</a>
-                <a href="#"><i class="fas fa-info-circle"></i></a>
-            </div>
-        </div>
-    </header>
-
-    <section class="info-hero">
-        <h1>Information & Support</h1>
-        <p>Find answers to common questions, view our area of coverage, and read our Terms & Conditions.</p>
-    </section>
-
-    <section class="info-section">
-        <h2 style="text-align: center; color: #0d83d1; margin-bottom: 30px;">Frequently Asked Questions (FAQ)</h2>
-        
-        <button class="accordion">
-            How far in advance should I book?
-            <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="panel">
-            <p>For large events and summer weddings (May-September), we recommend booking at least 6-12 months in advance to secure your date and preferred equipment. For smaller events or off-peak dates, 3-6 months is usually sufficient.</p>
-        </div>
-
-        <button class="accordion">
-            What is included in Marquee Hire?
-            <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="panel">
-            <p>Our standard marquee hire includes the marquee structure, professional installation and dismantling, and necessary weather proofing. Flooring, lighting, heating, and linings are often optional extras, depending on the package you choose.</p>
-        </div>
-
-        <button class="accordion">
-            Do you provide bar staffing and licensing?
-            <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="panel">
-            <p>Yes, our Jay's Bars service offers everything from dry hire (just the bar structure) to full service, including professional mixologists, stock, glassware, and obtaining the necessary Temporary Event Notice (TEN) license.</p>
-        </div>
-        
-        <button class="accordion">
-            What areas do you cover?
-            <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="panel">
-            <p>We primarily serve the following counties/regions: [INSERT YOUR PRIMARY AREA HERE]. We may travel further for large bookings, subject to a reasonable travel surcharge. Please contact us with your event postcode for confirmation.</p>
-        </div>
-        
-        <div class="terms-section">
-            <h2>Terms and Conditions Summary</h2>
-            <p>This is a brief summary. Full T&Cs will be provided upon quoting.</p>
-            <ul>
-                <li>**Deposit:** A non-refundable deposit of [X]% is required to secure any booking.</li>
-                <li>**Cancellation:** Cancellation fees apply based on how close the cancellation date is to the event date.</li>
-                <li>**Damage:** The client is responsible for any loss or damage to the hired equipment from the time of setup until collection.</li>
-                <li>**Site Access:** The client must ensure adequate access and a suitable level ground for marquee setup.</li>
-            </ul>
-            <p style="margin-top: 20px;">For detailed legal terms, please <a href="contact.html" style="color: #0d83d1; font-weight: bold;">contact our office</a>.</p>
-        </div>
-
-    </section>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-info">
-                <p><strong>CONTACT US</strong></p>
-                <p>CALL US: 0722 123 456</p>
-            </div>
-            <div class="footer-links">
-                <a href="marquees.html">MARQUEES</a>
-                <a href="discos.html">DISCOS</a>
-                <a href="jaysbars.html">JAY'S BARS</a>
-                <a href="equipment.html">EQUIPMENT HIRE</a>
-                <a href="information.html">INFORMATION</a>
-            </div>
-            <div class="footer-social">
-                <p>Follow us</p>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
+            <div class="col-image">
+                <img src="images/info-history.jpg" alt="Team working on event setup">
             </div>
         </div>
-    </footer>
-    
-    <script>
-        const acc = document.getElementsByClassName("accordion");
-        for (let i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                // Toggle active class on the clicked accordion button
-                this.classList.toggle("active");
-                
-                // Get the next sibling element (the panel)
-                const panel = this.nextElementSibling;
-                
-                // Check if the panel is open (maxHeight > 0) or closed
-                if (panel.style.maxHeight) {
-                    // Close the panel
-                    panel.style.maxHeight = null;
-                } else {
-                    // Close all other open panels (optional, but good for cleanliness)
-                    for (let j = 0; j < acc.length; j++) {
-                        if (i !== j && acc[j].classList.contains("active")) {
-                            acc[j].classList.remove("active");
-                            acc[j].nextElementSibling.style.maxHeight = null;
-                        }
-                    }
-                    // Open the current panel
-                    panel.style.maxHeight = panel.scrollHeight + "px";
-                } 
-            });
-        }
-    </script>
+    </div>
+</section>
 
-</body>
-</html>
+<section class="content-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Why Choose Storm Machine?</h2>
+        </div>
+        <div class="two-column-layout reverse">
+            <div class="col-text">
+                <p>Choosing the right supplier is crucial for your event's success. We stand out by offering a **single point of contact** for multiple services, eliminating the coordination hassle often associated with large events.</p>
+                <p>Our commitment to **quality equipment, experienced staff, and transparent pricing** ensures you receive the best value. We invest continuously in new inventory and training to stay ahead of event trends and safety standards.</p>
+            </div>
+            <div class="col-image">
+                <img src="images/info-whyus.jpg" alt="Event planning consultation">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content-section" style="background-color: #fcfcfc;">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Core Values</h2>
+        </div>
+        <div class="key-facts-grid">
+            <div class="fact-item">
+                <i class="fas fa-handshake"></i>
+                <h4>Reliability</h4>
+                <p>We guarantee delivery, setup, and removal are executed on time, every time.</p>
+            </div>
+            <div class="fact-item">
+                <i class="fas fa-shield-alt"></i>
+                <h4>Safety & Quality</h4>
+                <p>All equipment meets strict safety standards and is maintained to the highest level.</p>
+            </div>
+            <div class="fact-item">
+                <i class="fas fa-star"></i>
+                <h4>Client Focus</h4>
+                <p>Your vision is our priority. We customize every package to fit your unique needs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="get-a-quote-bottom">
+    <div class="container">
+        <h3>Ready to Plan Your Perfect Event?</h3>
+        <p>Start your journey by filling out our <a href="contact.html">contact form</a>, or call us directly on 01694 751380</p>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-main">
+            <div class="footer-logo-section">
+                <img src="images/stormmachine-footer-logo.png" alt="Storm Machine Footer Logo">
+                <p>Give us a call on 09999 751380</p>
+                <p>Send us an email at <a href="mailto:info@stormmachine.co.uk">info@stormmachine.co.uk</a></p>
+                <p>Or fill out our <a href="contact.html">enquiry form</a> below</p>
+            </div>
+            <div class="contact-info">
+                <p>FOLLOW US</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <p>QUICK LINKS</p>
+                <ul>
+                    <li><a href="marque
