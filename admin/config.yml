@@ -1,24 +1,85 @@
 backend:
+  # The type of git repository
   name: github
-  # Inlocuiti '[user]/[repo]' cu datele Dvs. exacte
-  repo: '[utilizator-github]/[nume-depozit]' 
-  branch: main # Asigurati-va ca este 'main' sau 'master'
-  base_url: https://auth.decapcms.app 
-  auth_scope: repo
+  # Replace with your GitHub organization/username
+  repo: predaalexiaa-ship-it/stormmachine.github.io 
+  # The branch to edit files on
+  branch: main 
+  # Required for GitHub Pages
+  base_url: https://api.netlify.com/auth
+  auth_endpoint: .netlify/identity/authenticate
 
-media_folder: "images" 
-public_folder: "/images"
+# Define where media assets (images) are stored and accessed
+media_folder: "images" # Path to the folder containing your images
+public_folder: "/images" # Base URL where images are served from
 
-# Definim Colectia: Editarea unui singur fișier JSON
+# Define the collections (the types of content you can edit)
 collections:
-  - name: "content_data"
-    label: "Datele Site-ului"
+  
+  # 1. SITE WIDE SETTINGS (For editing global text/numbers)
+  - name: "settings"
+    label: "Global Settings"
+    delete: false # Don't allow deletion of this entry
+    editor:
+      preview: false
     files:
-      - file: "_data/home.json" # Calea către fișierul JSON creat
-        label: "Pagină Acasă - Text"
-        name: "home_content"
+      - file: "data/global.json"
+        label: "Contact & Footer Info"
+        name: "contact_info"
         fields:
-          # Numele câmpurilor din JSON trebuie să se potrivească!
-          - {label: "Titlu Principal", name: "main_title", widget: "string"}
-          - {label: "Descriere Sub Titlu", name: "description", widget: "text"}
-          - {label: "Text Buton", name: "button_text", widget: "string"}
+          - label: "Phone Number"
+            name: "phone"
+            widget: "string"
+            default: "09999 751380"
+          - label: "Email Address"
+            name: "email"
+            widget: "string"
+            default: "info@stormmachine.co.uk"
+          - label: "Footer Copyright Year"
+            name: "year"
+            widget: "string"
+            default: "2025"
+            
+  # 2. TESTIMONIALS (A list of entries)
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "_data/testimonials"
+    create: true # Allow users to create new testimonials
+    slug: "{{slug}}" # Creates a file based on the title
+    fields:
+      - {label: "Name/Client", name: "client", widget: "string"}
+      - {label: "Date (YYYY-MM-DD)", name: "date", widget: "date"}
+      - {label: "Rating (1-5)", name: "rating", widget: "number", min: 1, max: 5}
+      - {label: "Testimonial Text", name: "body", widget: "markdown"}
+      
+  # 3. STATIC PAGE CONTENT (For editing text on the main pages)
+  - name: "pages"
+    label: "Main Pages"
+    files:
+      # Home Page Content
+      - file: "data/homepage.json"
+        label: "Home Page (Index)"
+        name: "homepage"
+        fields:
+          - {label: "Hero Title", name: "hero_title", widget: "string"}
+          - {label: "Intro Paragraph", name: "intro_text", widget: "markdown"}
+          - {label: "Banner Image", name: "hero_image", widget: "image"}
+          
+      # Marquees Page Content
+      - file: "data/marquees.json"
+        label: "Marquees Page"
+        name: "marqueespage"
+        fields:
+          - {label: "Marquees Intro", name: "intro_text", widget: "markdown"}
+          - {label: "Marquee Feature 1 Title", name: "feature1_title", widget: "string"}
+          - {label: "Marquee Feature 1 Description", name: "feature1_desc", widget: "text"}
+          # ... Add all content fields for marquees.html here ...
+          
+      # Discos Page Content
+      - file: "data/discos.json"
+        label: "Discos Page"
+        name: "discospage"
+        fields:
+          - {label: "Discos Intro", name: "intro_text", widget: "markdown"}
+          - {label: "DJ Professionals Description", name: "dj_desc", widget: "text"}
+          # ... Add all content fields for discos.html here ...
