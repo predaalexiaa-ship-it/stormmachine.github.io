@@ -1,13 +1,10 @@
 backend:
-  # The type of git repository
-  name: github
-  # Replace with your GitHub organization/username
-  repo: predaalexiaa-ship-it/stormmachine.github.io 
-  # The branch to edit files on
-  branch: main 
-  # Required for GitHub Pages
-  base_url: https://api.netlify.com/auth
-  auth_endpoint: .netlify/identity/authenticate
+  name: git-gateway
+  branch: main # sau master, dacă așa se numește ramura principală
+  identity_url: https://https://stormmachine.netlify.app/.netlify/identity
+  gateway_url: https://stormmachine.netlify.netlify.app/.netlify/git
+
+publish_mode: editorial_workflow
 
 # Define where media assets (images) are stored and accessed
 media_folder: "images" # Path to the folder containing your images
