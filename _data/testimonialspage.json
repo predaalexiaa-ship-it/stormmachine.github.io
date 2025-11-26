@@ -1,1 +1,12 @@
-
+{
+  "reviews": {
+    "client_reviews": [
+      {
+        "client": "Exemplu Client",
+        "date": "2025-01-01",
+        "rating": 5,
+        "body": "Serviciu excelent! Marquee-ul a fost perfect."
+      }
+    ]
+  }
+}
