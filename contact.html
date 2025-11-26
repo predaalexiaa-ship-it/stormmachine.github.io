@@ -523,8 +523,8 @@
         <div class="footer-main">
             <div class="footer-logo-section">
                 <img src="images/stormmachine-footer-logo.png" alt="Storm Machine Footer Logo">
-                <p>Give us a call on 09999 751380</p>
-                <p>Send us an email at <a href="mailto:info@stormmachine.co.uk">info@stormmachine.co.uk</a></p>
+                <p id="footer-phone">Give us a call on 09999 751380</p>
+                <p id="footer-email">Send us an email at <a href="mailto:info@stormmachine.co.uk">info@stormmachine.co.uk</a></p>
                 <p>Or fill out our <a href="contact.html">enquiry form</a> below</p>
             </div>
             <div class="contact-info">
@@ -545,11 +545,68 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; STORM MACHINE 2025</p>
+            <p>&copy; STORM MACHINE <span id="footer-year">2025</span></p>
             <p><a href="privacy.html">PRIVACY</a> | <a href="terms.html">TERMS</a></p>
         </div>
     </div>
 </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- Mobile Menu Toggle (Existing functionality) ---
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('mobile-active');
+                const icon = this.querySelector('i');
+                if (mobileMenu.classList.contains('mobile-active')) {
+                    icon.classList.remove('fa-bars'); icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+                }
+            });
+        }
+        
+        // --- Dynamic Data Fetching ---
+        function loadGlobalData() {
+            // Fetch data from the file controlled by Netlify CMS
+            fetch('/data/global.json')
+                .then(response => {
+                    // Check if the request was successful
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Update Phone Number
+                    const phoneElement = document.getElementById('footer-phone');
+                    if (phoneElement) {
+                        phoneElement.textContent = `Give us a call on ${data.phone}`;
+                    }
+
+                    // Update Email Link and Text
+                    const emailElement = document.getElementById('footer-email');
+                    if (emailElement) {
+                        emailElement.innerHTML = `Send us an email at <a href="mailto:${data.email}">${data.email}</a>`;
+                    }
+                    
+                    // Update Copyright Year
+                    const yearElement = document.getElementById('footer-year');
+                    if (yearElement) {
+                        yearElement.textContent = data.year;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching global data:', error);
+                    // You can keep default content if fetch fails
+                });
+        }
+        
+        loadGlobalData();
+    });
+</script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
