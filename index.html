@@ -893,11 +893,51 @@ document.addEventListener('DOMContentLoaded', function() {
     showSlide(currentSlide);
 });
 // ----------------------------
+
+    // Fetch YAML files from GitHub API (raw content)
+async function loadData() {
+    const repo = 'predaalexia-ship-it/stormmachine.github.io';  // Your repo
+    const branch = 'main';
+
+    // Load hero settings
+    const heroRes = await fetch(`https://api.github.com/repos/\( {repo}/contents/_data/hero.yml?ref= \){branch}`);
+    const heroData = await heroRes.json();
+    const heroYaml = await (await fetch(heroData.download_url)).text();
+    const hero = jsyaml.load(heroYaml);  // Use js-yaml lib (add via CDN below)
+
+    // Update hero elements
+    document.querySelector('h1').textContent = hero.title;
+    document.querySelector('h2').textContent = hero.subtitle;
+    document.querySelector('.description').innerHTML = hero.description.replace(/\n/g, '<br>');
+
+    // Load testimonials
+    const testRes = await fetch(`https://api.github.com/repos/\( {repo}/contents/_data/testimonials?ref= \){branch}`);
+    const testData = await testRes.json();
+    const testimonialsDiv = document.getElementById('testimonials');
+    testimonialsDiv.innerHTML = '';  // Clear loading
+    for (let file of testData) {
+        if (file.name.endsWith('.yml')) {
+            const testYaml = await (await fetch(file.download_url)).text();
+            const test = jsyaml.load(testYaml);
+            testimonialsDiv.innerHTML += `
+                <div class="testimonial">
+                    <p>${test.quote}</p>
+                    <em>— ${test.author}</em>
+                </div>
+            `;
+        }
+    }
+}
+
+// Load on page ready
+window.addEventListener('DOMContentLoaded', loadData);
+
     
 </script>
 
 </body>
 </html>
+
 
 
 
