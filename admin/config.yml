@@ -1,28 +1,10 @@
 backend:
-  name: git-gateway  # Uses GitHub as the "backend"
-  branch: main       # Your repo's default branch (change if it's 'master')
-
-media_folder: "assets/images"  # Where images upload (create this folder)
-public_folder: "/assets/images"
-
-# Collections: What your client can edit
-collections:
-  - name: "settings"  # Hero content (single page)
-    label: "Hero Settings"
-    folder: "_data"    # Saves to a YAML file in _data/
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-hero"
-    fields:
-      - {label: "Title", name: "title", widget: "string", default: "MARQUEE, DISCOS, BARS AND EQUIPMENT HIRE FOR"}
-      - {label: "Subtitle", name: "subtitle", widget: "string", default: "WEDDINGS • BIRTHDAYS • CORPORATE EVENTS"}
-      - {label: "Description", name: "description", widget: "markdown", default: "Storm Machine Entertainment is a family-run business..."}  # Your lorem ipsum text
-
-  - name: "testimonials"  # Testimonials (multiple entries)
-    label: "Testimonials"
-    folder: "_data/testimonials"  # Saves each as YAML files
-    create: true
-    slug: "{{author}}"
-    fields:
-      - {label: "Author", name: "author", widget: "string"}
-      - {label: "Quote", name: "quote", widget: "markdown"}
-      - {label: "Created", name: "date", widget: "datetime", default: "now"}
+  name: git-gateway
+  branch: main
+  commit_messages:
+    create: "Create {{collection}} '{{name}}' via CMS"
+    update: "Update {{collection}} '{{name}}' via CMS"
+  # GitHub OAuth
+  base_url: https://api.github.com
+  repo: predaalexiaa-ship-it/stormmachine.github.io  # Your repo
+  site_id: Ov23liioIPaP5BOd2CN0  # From Step 1
