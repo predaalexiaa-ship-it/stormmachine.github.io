@@ -1,82 +1,28 @@
 backend:
-  name: git-gateway
-  branch: main # sau master, dacă așa se numește ramura principală
-  identity_url: https://https://stormmachine.netlify.app/.netlify/identity
-  gateway_url: https://stormmachine.netlify.netlify.app/.netlify/git
+  name: git-gateway  # Uses GitHub as the "backend"
+  branch: main       # Your repo's default branch (change if it's 'master')
 
-publish_mode: editorial_workflow
+media_folder: "assets/images"  # Where images upload (create this folder)
+public_folder: "/assets/images"
 
-# Define where media assets (images) are stored and accessed
-media_folder: "images" # Path to the folder containing your images
-public_folder: "/images" # Base URL where images are served from
-
-# Define the collections (the types of content you can edit)
+# Collections: What your client can edit
 collections:
-  
-  # 1. SITE WIDE SETTINGS (For editing global text/numbers)
-  - name: "settings"
-    label: "Global Settings"
-    delete: false # Don't allow deletion of this entry
-    editor:
-      preview: false
-    files:
-      - file: "data/global.json"
-        label: "Contact & Footer Info"
-        name: "contact_info"
-        fields:
-          - label: "Phone Number"
-            name: "phone"
-            widget: "string"
-            default: "09999 751380"
-          - label: "Email Address"
-            name: "email"
-            widget: "string"
-            default: "info@stormmachine.co.uk"
-          - label: "Footer Copyright Year"
-            name: "year"
-            widget: "string"
-            default: "2025"
-            
-  # 2. TESTIMONIALS (A list of entries)
-  - name: "testimonials"
-    label: "Testimonials"
-    folder: "_data/testimonials"
-    create: true # Allow users to create new testimonials
-    slug: "{{slug}}" # Creates a file based on the title
+  - name: "settings"  # Hero content (single page)
+    label: "Hero Settings"
+    folder: "_data"    # Saves to a YAML file in _data/
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-hero"
     fields:
-      - {label: "Name/Client", name: "client", widget: "string"}
-      - {label: "Date (YYYY-MM-DD)", name: "date", widget: "date"}
-      - {label: "Rating (1-5)", name: "rating", widget: "number", min: 1, max: 5}
-      - {label: "Testimonial Text", name: "body", widget: "markdown"}
-      
-  # 3. STATIC PAGE CONTENT (For editing text on the main pages)
-  - name: "pages"
-    label: "Main Pages"
-    files:
-      # Home Page Content
-      - file: "data/homepage.json"
-        label: "Home Page (Index)"
-        name: "homepage"
-        fields:
-          - {label: "Hero Title", name: "hero_title", widget: "string"}
-          - {label: "Intro Paragraph", name: "intro_text", widget: "markdown"}
-          - {label: "Banner Image", name: "hero_image", widget: "image"}
-          
-      # Marquees Page Content
-      - file: "data/marquees.json"
-        label: "Marquees Page"
-        name: "marqueespage"
-        fields:
-          - {label: "Marquees Intro", name: "intro_text", widget: "markdown"}
-          - {label: "Marquee Feature 1 Title", name: "feature1_title", widget: "string"}
-          - {label: "Marquee Feature 1 Description", name: "feature1_desc", widget: "text"}
-          # ... Add all content fields for marquees.html here ...
-          
-      # Discos Page Content
-      - file: "data/discos.json"
-        label: "Discos Page"
-        name: "discospage"
-        fields:
-          - {label: "Discos Intro", name: "intro_text", widget: "markdown"}
-          - {label: "DJ Professionals Description", name: "dj_desc", widget: "text"}
-          # ... Add all content fields for discos.html here ...
+      - {label: "Title", name: "title", widget: "string", default: "MARQUEE, DISCOS, BARS AND EQUIPMENT HIRE FOR"}
+      - {label: "Subtitle", name: "subtitle", widget: "string", default: "WEDDINGS • BIRTHDAYS • CORPORATE EVENTS"}
+      - {label: "Description", name: "description", widget: "markdown", default: "Storm Machine Entertainment is a family-run business..."}  # Your lorem ipsum text
+
+  - name: "testimonials"  # Testimonials (multiple entries)
+    label: "Testimonials"
+    folder: "_data/testimonials"  # Saves each as YAML files
+    create: true
+    slug: "{{author}}"
+    fields:
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Quote", name: "quote", widget: "markdown"}
+      - {label: "Created", name: "date", widget: "datetime", default: "now"}
